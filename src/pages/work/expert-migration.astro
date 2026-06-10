@@ -1,0 +1,136 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+---
+
+<CaseStudy
+  title="Migration for 30,000+ Product Experts"
+  type="Case Study"
+  timeline="Jul 2024 – Apr 2025"
+  sector="Fintech, Enterprise"
+  role="E2E lead on Product design, Service design, Design system, User research"
+  platform="Responsive Web App"
+  goal="Migrate over 30,000 TurboTax product support experts from Salesforce to Intuit Expert Portal (IEP) to create a unified, scalable platform. The objective was to eliminate dependency on Salesforce while improving workflows, expert productivity, and platform reliability — ultimately enhancing customer support experiences during the peak tax season."
+  myImpact="I led E2E product, service, and experience design, collaborating with cross-functional partners across engineering, legal, security, and operations. I created scalable design frameworks, built service blueprints, and developed a capability evaluation system that shaped both our design process and roadmap planning. My work guided the platform's evolution and directly influenced the success of the expert migration."
+  outcomes={[
+    "100% of tiered product experts transitioned from Salesforce to IEP",
+    "4M customer contacts handled — up 42% year over year",
+    "95% contact handle rate and 5% improvement in Average Handle Time (now 17.5 min)",
+    "tNPS rose to 54.5 (+1.1 points)",
+    "Tools Readiness Score: 82%",
+    "Experts praised the platform as more efficient, reliable, and easier to use",
+  ]}
+  image="/images/thumb-migration.jpg"
+>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Empathize</span>
+    <h2>What is a product support expert?</h2>
+    <p>Someone hired by Intuit to provide virtual assistance and advice to customers on product support issues, such as login problems or technical glitches. These product experts play a crucial role in ensuring that customers have a positive and efficient tax preparation experience.</p>
+    <figure class="cs-img">
+      <img src="/images/migration-01.png" alt="Net new archetypes migrating into Intuit Expert Portal" loading="lazy" />
+      <figcaption>Net new archetypes migrating into Intuit Expert Portal (IEP)</figcaption>
+    </figure>
+
+    <h3>User Research</h3>
+    <p>Before diving into the design process, I led user research sessions called Follow Me Homes to gain empathy and a deep understanding of the product and identify its pain points. Our goal wasn't just to replicate the existing capabilities from Salesforce in the new platform — we wanted to enhance them as we transitioned.</p>
+    <p>As part of the discovery work, I helped co-create service and experience design blueprints, mapping out the E2E workflow of a product expert, including their tasks and actions, to fully understand what it means to have a successful issue resolution.</p>
+
+    <h3>Experience Design Blueprint</h3>
+    <p>We mapped each user flow and use case, ensuring a comprehensive understanding of the customer journey. We used sticky notes to annotate areas where we had questions, comments, and concerns regarding the current flow — focusing on UI patterns, workflows, and processes, helping us identify potential improvements and areas for optimization.</p>
+    <figure class="cs-img">
+      <img src="/images/migration-02a.png" alt="A portion of the Experience Design Blueprint" loading="lazy" />
+      <figcaption>A portion of the Experience Design Blueprint</figcaption>
+    </figure>
+
+    <h3>Service Design Blueprint</h3>
+    <p>Service design blueprints are a tangible way to visualize the components of the current service, showing the orchestration of people, touchpoints, processes, and technology. They map the experience of both those in direct contact with the customer and the users working behind the scenes to deliver the service, highlighting dependencies within the organization and aiding in the creation of plans and roadmaps.</p>
+    <figure class="cs-img">
+      <img src="/images/migration-02b.png" alt="A portion of the Service Design Blueprint" loading="lazy" />
+      <figcaption>A portion of the Service Design Blueprint</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Define</span>
+    <h2>Problem statement</h2>
+    <blockquote class="cs-ps">
+      <p><em>I am...</em> a TurboTax product support expert</p>
+      <p><em>I am trying to…</em> handle customer issues as quickly and efficiently as possible</p>
+      <p><em>But…</em> the tools and features in Salesforce, along with the existing workflows and processes, are not effective for resolving these issues quickly</p>
+      <p><em>Because…</em> the tools are unreliable, the data is often outdated or unavailable, and the workflows were built by individuals who didn't fully understand the business needs</p>
+      <p><em>Which makes me feel...</em> frustrated and helpless, knowing that I am not able to provide the best possible support to my customers.</p>
+    </blockquote>
+
+    <h3>Business goal</h3>
+    <p>Establish Intuit Expert Portal (IEP) as the sole platform for all product experts, delivering and enhancing capabilities for product experts to fully serve their customers without needing access to Salesforce, and effectively transitioning in-product reports, insights, and data from Salesforce to IEP.</p>
+    <p>Success is measured by: 100% of tiered TurboTax product experts in IEP with no usage of Salesforce.</p>
+
+    <h3>Requirements</h3>
+    <p>Business System Analysis (BSA) collaborates closely with TurboTax to understand and document their needs, creating Business Requirement Documents (BRDs) that serve as a foundation for product experts to perform their tasks effectively. PMs in collaboration with Design then use these BRDs as a baseline to create Product Requirement Documents (PRDs) — making them more robust and comprehensive, accounting for the target state with a platform mindset.</p>
+    <div class="cs-img-2col">
+      <figure class="cs-img">
+        <img src="/images/migration-03a.png" alt="Business Requirements Document example" loading="lazy" />
+        <figcaption>Business Requirements Document (BRD)</figcaption>
+      </figure>
+      <figure class="cs-img">
+        <img src="/images/migration-03b.gif" alt="Wiki Product Requirements Document example" loading="lazy" />
+        <figcaption>Wiki / Product Requirements Document (PRD)</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Ideate</span>
+    <h2>Product support capabilities</h2>
+    <p>Unlike typical projects where one person focuses on a single capability, this initiative demands close coordination across the entire organization. I developed a framework that standardized and guided cross-team collaboration. Before diving into any specific capability, I first assessed whether it was already present and mature within IEP or if it needed to be newly built:</p>
+    <ul>
+      <li><strong>No Enhancement Needed</strong> — the capability is already mature and durable enough to handle all Salesforce use cases.</li>
+      <li><strong>Enhancement Required</strong> — the capability exists in the platform but is not yet durable enough to meet the needs of product experts.</li>
+      <li><strong>Net New</strong> — the capability does not currently exist in the platform and will need to be built from scratch.</li>
+    </ul>
+
+    <h3>E2E Capability Layout</h3>
+    <p>I created a comprehensive E2E artifact for TurboTax product experts, encapsulating the lifecycle of a call using the IDEAL (Identify, Define, Explore, Act, Lookback) framework. This framework breaks down the various capabilities and tags the design owner of each. This influenced leadership, aiding in roadmap planning, identifying risks by highlighting design gaps, and suggesting resource allocation of designers.</p>
+    <figure class="cs-img">
+      <img src="/images/migration-04.png" alt="E2E capability layout and user flow" loading="lazy" />
+      <figcaption>E2E capability layout — the full lifecycle of a product expert call</figcaption>
+    </figure>
+    <div class="cs-img-2col">
+      <figure class="cs-img">
+        <img src="/images/migration-05a.png" alt="IDS design system components" loading="lazy" />
+        <figcaption>IDS design system components used in IEP</figcaption>
+      </figure>
+      <figure class="cs-img">
+        <img src="/images/migration-05b.gif" alt="Capability evaluation in action" loading="lazy" />
+        <figcaption>Capability evaluation system in action</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Test</span>
+    <h2>Roundtable sessions</h2>
+    <p>After the designs have been reviewed for initial sign-off, we ensure they meet our experts' standards. We typically conduct several rounds of roundtable sessions where the experts walk through the designs and provide feedback in any form. We then synthesize the feedback from all sessions to identify any common themes that need addressing.</p>
+
+    <h3>Implementation</h3>
+    <p>We ensured that all development specifications, including edge cases, error states, and interactions, were thoroughly prepared. We used durable components from our design system to avoid custom code or one-off solutions. After development, we provided a pre-production link to test the build through various scenarios and edge cases, documenting discrepancies for the team. Once we had internal sign-off, the build moved to User Acceptance Testing (UAT).</p>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Results</span>
+    <h2>Product launch summary</h2>
+    <p>We successfully migrated and scaled 100% of TurboTax product support experts across our partners from Salesforce to IEP for the TY24 season. This transition was seamless, with Tier 1 product experts trained solely on IEP and no longer using Salesforce. Our experts performed exceptionally well, handling a total of 4 million contacts — a 42% increase from the previous year — while improving in Average Handle Time (AHT) and tNPS.</p>
+
+    <h3>Why this is significant</h3>
+    <p>The TurboTax product support experts managed 455K engagements over the last four days of the second peak alone, demonstrating the robustness of the new system. Key metrics include a 31% increase in the number of experts, a 95% contact handle rate, a 5% reduction in AHT to 17.5 minutes, and a tNPS score of 54.5, up 1.1 points from the previous year. The experts gave the new platform a Tools Readiness score of 82%, reflecting their confidence and satisfaction.</p>
+
+    <h3>Expert feedback</h3>
+    <ul>
+      <li>"It's a great and efficient system that I have come to use reliably."</li>
+      <li>"It's a lot easier and way more efficient."</li>
+      <li>"Overall, it is much improved."</li>
+      <li>"AI and the new website were an adjustment but very great changes for efficiency and ease of completing tasks."</li>
+    </ul>
+  </div>
+
+</CaseStudy>

@@ -1,0 +1,110 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+---
+
+<CaseStudy
+  title="Agentic (AI)-Powered Support, Expert to Expert"
+  type="Case Study"
+  timeline="Dec 2024 – Mar 2025"
+  sector="Fintech, Enterprise"
+  role="E2E lead on Product design, Service design, Design system, User research"
+  platform="Responsive Web App"
+  goal="Improve the support experience for TurboTax Product Support Experts by redesigning how Tier 1 experts connect with Tier 2 SMEs. The goal was to reduce friction, automate context sharing, and integrate gen-AI-powered assistance (Agentic) — ultimately improving efficiency, deflecting unnecessary escalations, and enhancing customer satisfaction."
+  myImpact="As the E2E lead designer, I guided the entire UX process, from discovery through launch. I conducted user research (Follow-Me-Homes), mapped escalation flows, defined edge cases, and designed scalable components within our design system. I also partnered closely with engineering and QA to test and validate every interaction, ensuring platform durability and adoption."
+  outcomes={[
+    "40% year-over-year reduction in Tier 1 escalations",
+    "24% escalation deflection during early cohort testing",
+    "20 minutes saved per deflected escalation",
+  ]}
+  image="/images/thumb-agentic-support.jpg"
+>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Empathize</span>
+    <h2>Understanding the two-tier support model</h2>
+    <h3>What is a Tier 1 product support expert?</h3>
+    <p>A Tier 1 Product Support Expert handles incoming contacts regarding billing, account, and product or service management issues. They may flex between different products based on customer demand. These experts are hired by Intuit to provide virtual assistance and advice to customers on a range of issues, including login problems and technical glitches. They play a crucial role in ensuring that customers have a positive and efficient tax preparation experience.</p>
+
+    <h3>What is a Tier 2 product support expert?</h3>
+    <p>A Tier 2 Product Support Expert, also known as a Subject Matter Expert (SME), assists Product Experts by monitoring Tier 1's performance and helping them overcome obstacles with their deep knowledge of product issues. They play a crucial role in supporting Tier 1 experts and maintaining the hierarchical structure of the business's service delivery.</p>
+
+    <h3>User Research</h3>
+    <p>To better understand the current flow and experience, and to gain empathy for our experts, I conducted a handful of user research sessions known as Follow Me Homes. It became painfully clear that the experience was far from optimal. The experts have to manually input several pieces of information that the system should already know, leading to significant delays of up to two minutes. This presents a major opportunity to reduce Average Handling Time (AHT) and Customer Service Time (CST), which are primary metrics for evaluating expert performance.</p>
+    <figure class="cs-img">
+      <img src="/images/agentic-01.png" alt="Follow Me Home research session with a TurboTax Product Expert" loading="lazy" />
+      <figcaption>A Follow Me Home being conducted with a TurboTax Product Expert</figcaption>
+    </figure>
+
+    <h3>The omni-chat problem</h3>
+    <p>The omni-chat was very archaic and carried zero context with it. It was not plugged into the Tier 1 data to know basic knowledge like what site they are located at. Before connecting to a Tier 1 it would ask several questions which would delay connecting to a Tier 2. There were so many questions that it could take up to 2 minutes for Tier 1 to answer all of them.</p>
+    <figure class="cs-img">
+      <img src="/images/agentic-02.gif" alt="Current Tier 1 to Tier 2 escalation experience in Salesforce" loading="lazy" />
+      <figcaption>A demo of the current Tier 1 to Tier 2 chat escalation feature in Salesforce — zero context carried, two-minute delays</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Define</span>
+    <h2>Problem statement</h2>
+    <blockquote class="cs-ps">
+      <p><em>I am...</em> a TurboTax product support expert</p>
+      <p><em>I am trying to…</em> connect to a Tier 2 expert to get unblocked so I can quickly and efficiently help my customer resolve their issues</p>
+      <p><em>But…</em> the chat feature takes too long to connect me with someone</p>
+      <p><em>Because…</em> the system should already know all the context and shouldn't require me to answer questions it should already have</p>
+      <p><em>Which makes me feel...</em> like my efforts are wasted, especially when I end up just waiting for the Tier 2 expert to connect, leaving my customer waiting as well.</p>
+    </blockquote>
+
+    <h3>Business goal</h3>
+    <p>Tier 1 product experts currently seek assistance from Tier 2 experts when they are stuck or unsure how to help a customer. They connect via omni-chat, a native Salesforce solution, where Tier 2 experts can provide support and handle up to five concurrent chats. To enhance this process, a new capability is required in IEP as part of the CS-LG-09 (Salesforce into IEP) project, ensuring that the Tier 2 chat support feature is fully available by the third peak in October 2024.</p>
+
+    <h3>Requirements</h3>
+    <p>The Tier 1 capability needs to be seamlessly integrated within Intuit Assist. Before automatically connecting to a Tier 2 expert, Intuit Assist should offer de-escalation with self-help answers from its curated knowledge base via the QnA plug-in. If a Tier 1 expert determines they need further assistance, the Human Handover (HHO) plug-in is activated, connecting them to the next available Tier 2 expert. For Tier 2 experts, the existing Telephony widget will automatically provide all necessary context, ensuring a smooth transition.</p>
+    <figure class="cs-img">
+      <img src="/images/agentic-03.png" alt="Requirements documentation" loading="lazy" />
+      <figcaption>Business Requirements Document — mapping what the system needed to know and do</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Ideate</span>
+    <h2>User flows</h2>
+    <p>There are two paths an expert can choose before connecting to a Tier 2: ask their question first, or request a Tier 2 expert first. Both options require an answer before connecting. This approach supports our de-escalation strategy, where the Tier 1 expert attempts to resolve the issue first.</p>
+
+    <h3>Tier 1 flow: ask question first</h3>
+    <p>When a Tier 1 expert is stuck, they go to Intuit Assist for assistance. They can ask their question and review the response. If the answer is insufficient, they can then request a Tier 2 chat. The system recognizes they've just asked a question and initiates the routing process. Before automatically connecting them, we confirm the current case is the one they need help with. Once confirmed, Intuit Assist generates a call summary and verifies it with the Tier 1 expert. After confirmation, they're connected to a Tier 2 expert.</p>
+
+    <h3>Tier 1 flow: ask escalation first</h3>
+    <p>Sometimes a Tier 1 expert will immediately request a Tier 2 chat. The system knows they haven't asked a question yet and will use our de-escalation strategy to encourage self-help first. If the initial response is not sufficient and the expert still needs help, the process follows the same steps as above.</p>
+
+    <h3>Tier 2 flow</h3>
+    <p>When a Tier 1 expert confirms they need assistance, the Human Handover (HHO) plug-in is invoked, connecting them to the next available Tier 2 expert. The engagement context is automatically passed on to the Tier 2 expert, ensuring they are fully informed. The Tier 2 expert can then treat the Tier 1 expert as their customer, addressing their questions directly. If necessary, the Tier 2 expert can join the same screen-sharing session with the Tier 1 expert and the customer.</p>
+    <figure class="cs-img">
+      <img src="/images/agentic-04.png" alt="User flow for a Tier 1 to Tier 2 escalation" loading="lazy" />
+      <figcaption>Example basic user flow for a Tier 1 product expert to connect to a Tier 2</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Prototype</span>
+    <h2>Component documentation</h2>
+    <p>Since this is a brand-new experience built for IEP, meticulous documentation on its construction and functionality is crucial for a successful build, considering all its different states. Engineering needs to understand each inversion pattern to ensure the component functions correctly. Additionally, we must create this component at the platform level, making it durable and versatile enough for any other use case or archetype within IEP to utilize.</p>
+    <figure class="cs-img">
+      <img src="/images/agentic-05.png" alt="Specs documentation for dev handoff" loading="lazy" />
+      <figcaption>Specs documentation handed off to dev to ensure pixel-perfect accuracy</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Test</span>
+    <h2>Smaller cohort launch</h2>
+    <p>It was clear that the new design was a better experience, so we launched a small test to 20% of Tier 1 product experts to run water through the pipes. The test results were excellent, with 24% of escalation attempts deflected, reducing the percentage of contacts with escalations from 10.2% to 6.1% (60 ITC). The overall AHT is 99 ITC, and we observed almost 20 minutes of savings when escalations were deflected. Due to this success, we scaled the new experience to 100% of product experts a few weeks later.</p>
+    <figure class="cs-img">
+      <img src="/images/agentic-06.gif" alt="Happy path to connect a Tier 1 expert to a Tier 2 SME" loading="lazy" />
+      <figcaption>Happy path to connect a Tier 1 Product Expert to a Tier 2 Subject Matter Expert</figcaption>
+    </figure>
+
+    <h3>Results</h3>
+    <p>With the integration of gen-AI-powered self-help, call summarization, and attribute-based routing, the Intuit Expert Portal (IEP) successfully launched our Human Intervention Agent. This Tier 1 to Tier 2 chat feature enables Tier 1 experts to seamlessly connect with Tier 2 human expertise. It also offers de-escalation through self-help answers, which can be resolved by Intuit Assist, resulting in an 8% Tier 1 escalation rate — a remarkable 40% reduction year-over-year. This has led to a decrease in both Average Handling Time (AHT) and an improvement in Total Net Promoter Score (tNPS), with an Expert Tooling PRS consistently above 80.</p>
+  </div>
+
+</CaseStudy>

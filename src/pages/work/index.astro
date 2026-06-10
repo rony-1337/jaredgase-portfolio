@@ -1,0 +1,273 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const projects = [
+  {
+    slug: 'ai-native-iep',
+    title: 'Project: AI Native IEP, Putting Tools Into the Workflow',
+    description: 'Led the design pushing IEP\'s expert workspace from baseline third peak to its next iteration. The provocation: instead of leaving a call to open a tool, everything becomes a real-time card driven by what the customer says. A roadmap-moving bet, now built into how AI Native IEP scales.',
+    image: '/images/thumb-ai-native-iep.jpg',
+  },
+  {
+    slug: 'agentic-support',
+    title: 'Case study: Agentic (AI)-Powered Support, Expert to Expert',
+    description: 'Designed a flexible chat feature in IEP that connects Tier 1 and Tier 2 experts through Intuit Assist, our gen-AI-powered virtual assistant. Combining self-help, call summarization, and smart routing, this solution launched with TurboTax and is built to scale across expert roles and products.',
+    image: '/images/thumb-agentic-support.jpg',
+  },
+  {
+    slug: 'turbotax-concierge',
+    title: 'Case Study: TurboTax Concierge, A New Seller Archetype',
+    description: 'Designed the E2E experience for a net-new white-glove seller role connecting leads to TurboTax experts. From service blueprinting to aligned tooling, Concierge now influences 53% of conversions.',
+    image: '/images/thumb-concierge.jpg',
+  },
+  {
+    slug: 'expert-migration',
+    title: 'Case Study: Migration for 30,000+ Product Experts',
+    description: 'Led the UX design for a large-scale migration from Salesforce to Intuit\'s internal platform, IEP. Collaborated across legal, security, and service delivery teams to turn complex challenges into user-centered solutions that ensured a smooth transition for tens of thousands of support experts.',
+    image: '/images/thumb-migration.jpg',
+  },
+  {
+    slug: 'cityu-redesign',
+    title: 'Case study: CityU Website Redesign',
+    description: 'Led the full redesign of CityU\'s website to better serve working professionals and international students. Focused on usability, clarity, and accessibility, the new experience drove a 212% spike in RFI submissions post-launch. My role spanned research, prototyping, and ongoing optimization.',
+    image: '/images/thumb-cityu.jpg',
+  },
+  {
+    slug: 'ux-audit',
+    title: 'UX Audit: Rethinking UX Audit: Rethinking the Path to Support',
+    description: 'Led a comprehensive audit of the QuickBooks product support experience to uncover why customers were missing key support options. Through research, analysis, and UX best practices, we identified design opportunities to guide users more effectively and improve access to the help they need.',
+    image: '/images/thumb-ux-audit-2.jpg',
+  },
+];
+---
+
+<Layout title="Work">
+
+  <!-- Hero banner -->
+  <section class="work-hero">
+    <div class="work-hero-inner">
+      <blockquote>"Delight people, the business will follow."</blockquote>
+      <p>I lead end-to-end design strategy, scale design impact across teams, and build the culture that makes great design sustainable.</p>
+    </div>
+  </section>
+
+  <!-- How I drive impact -->
+  <section class="impact-section">
+    <div class="impact-inner">
+      <h2>How I drive impact</h2>
+      <p class="impact-subtitle">My work centers on three areas that extend beyond individual deliverables and focus on system-level impact across SalesTech and VEP.</p>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-icon">
+            <img src="/images/icon-01.png" alt="" width="100" height="100" />
+          </div>
+          <h3>End-to-end product strategy</h3>
+          <p>Expanding Concierge beyond a set of features into a connected system that informs platform direction. Proactively identifying opportunities and defining future states before requirements are set.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">
+            <img src="/images/icon-02.png" alt="" width="100" height="100" />
+          </div>
+          <h3>Scaling design impact</h3>
+          <p>Establishing shared principles, tools, and operating models that enable consistent, high-quality decisions across teams. Creating repeatable frameworks that reduce ambiguity and improve alignment.</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-icon">
+            <img src="/images/icon-03.png" alt="" width="100" height="100" />
+          </div>
+          <h3>Elevating design culture</h3>
+          <p>Strengthening the design community through mentorship, knowledge sharing, and initiatives that lift engagement and craft maturity. Creating space for designers and partners to collaborate confidently.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects list -->
+  <section class="projects-section">
+    <div class="projects-inner">
+      <h2>Projects</h2>
+      <p class="projects-subtitle">Over the years as a product designer, I've had the opportunity to work on a range of projects, case studies, and audits.</p>
+
+      <div class="project-list">
+        {projects.map((p) => (
+          <div class="project-row">
+            <a href={`/work/${p.slug}`} class="project-thumb">
+              <img src={p.image} alt={p.title} loading="lazy" />
+            </a>
+            <div class="project-info">
+              <h3><a href={`/work/${p.slug}`}>{p.title}</a></h3>
+              <p>{p.description}</p>
+              <a href={`/work/${p.slug}`} class="learn-more">Learn more</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  /* ─── Hero ──────────────────────────── */
+  .work-hero {
+    background: var(--accent);
+    color: var(--white);
+    padding: 6vmax var(--gutter);
+  }
+
+  .work-hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .work-hero blockquote {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.25;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .work-hero p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    
+  }
+
+  /* ─── Impact section ─────────────────── */
+  .impact-section {
+    padding: 5vmax var(--gutter);
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .impact-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .impact-inner h2 {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .impact-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    
+  }
+
+  .impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  .impact-icon {
+    margin-bottom: 1.25rem;
+  }
+
+  .impact-icon img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+
+  .impact-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .impact-card p {
+    font-size: 0.88rem;
+    line-height: 1.65;
+  }
+
+  /* ─── Projects list ──────────────────── */
+  .projects-section {
+    padding: 5vmax var(--gutter);
+  }
+
+  .projects-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .projects-inner h2 {
+    font-size: clamp(1.4rem, 2vw, 1.8rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .projects-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+    
+  }
+
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .project-thumb {
+    display: block;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .project-thumb img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-thumb:hover img { transform: scale(1.03); }
+
+  .project-info h3 {
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .project-info h3 a { color: var(--black); }
+  .project-info h3 a:hover { color: var(--accent); }
+
+  .project-info p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    
+  }
+
+  .learn-more {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+
+  .learn-more:hover {
+    background: var(--accent);
+    color: var(--white);
+  }
+
+  /* ─── Responsive ─────────────────────── */
+  @media () {
+    .impact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .project-row { grid-template-columns: 1fr; }
+    .project-thumb img { aspect-ratio: 16/9; }
+  }
+</style>

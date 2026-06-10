@@ -1,0 +1,145 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+---
+
+<CaseStudy
+  title="AI Native IEP: Reimagining the Expert Workspace"
+  type="Project"
+  timeline="Jul 2025 – Sep 2025"
+  sector="Fintech, Enterprise"
+  role="E2E lead on Product design, Service design, Design system"
+  platform="Responsive Web App"
+  goal="Evolve the Intuit Expert Portal (IEP) from a static, manual platform that doesn't hold everything an expert needs into an AI-native one where the work comes to the expert instead of the expert going to find it, so experts spend less time navigating and more time with the customer."
+  myImpact="As a design lead on the end-to-end DFY experience, I took IEP's expert workspace from its baseline third-peak state to its next iteration. My contribution was the 'plus': a provocation called Dynamic Workflow Cards, where the actions an expert needs are served up as cards right in their workflow, surfaced in real time by what the customer is saying, instead of the expert leaving to go find a separate tool. My designs didn't ship verbatim, but the direction moved the roadmap and fed the iterations of AI Native IEP that followed."
+  outcomes={[
+    "Dynamic Workflow Cards — a provocation collapsing tools and actions into real-time, conversation-driven cards",
+    "End-to-end flows across three scenarios, designed to hold up even when AI guidance is weak",
+    "A roadmap-moving direction presented to cross-functional partners and carried into later iterations",
+  ]}
+  image="/images/thumb-ai-native-iep.jpg"
+>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Empathize</span>
+    <h2>What is an IEP expert?</h2>
+    <p>Before this work, IEP was a static, manual platform that didn't hold everything experts needed, so they worked across it and a patchwork of outside tools. Experts spent a real share of every call on navigation and wayfinding instead of the customer in front of them:</p>
+    <ul>
+      <li>Product Support experts who help customers with product, account, and technical issues.</li>
+      <li>Domain experts (CPAs and bookkeepers) who provide tax and accounting expertise.</li>
+    </ul>
+    <figure class="cs-img">
+      <img src="/images/iep-01.png" alt="IEP expert archetypes" loading="lazy" />
+      <figcaption>Expert archetypes across IEP</figcaption>
+    </figure>
+
+    <h3>The problem: experts fight their software</h3>
+    <p>Before this work, IEP was a suite of disparate tools layered together over years. Experts spent a real share of every call on navigation and wayfinding instead of the customer in front of them.</p>
+    <ul>
+      <li><strong>Swivel-chair and glitches.</strong> Domain experts kept around 7 tools open to support a single call, and experts reported clearing cache and cookies an average of 2.7 times a day just to keep IEP working.</li>
+      <li><strong>Inefficient context.</strong> With no unified view, experts spent time gathering and digesting information before they could even understand the customer's situation.</li>
+      <li><strong>Static guidance.</strong> Intuit Assist sat in a fixed side panel. Guidance, navigation, and workflow were three separate things the expert had to stitch together themselves.</li>
+    </ul>
+    <figure class="cs-img">
+      <img src="/images/iep-02.gif" alt="Legacy IEP screens" loading="lazy" />
+      <figcaption>The legacy IEP screens: cluttered tab-and-panels</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Define</span>
+    <h2>Problem statement</h2>
+    <blockquote class="cs-ps">
+      <p><em>I am...</em> a TurboTax expert</p>
+      <p><em>I am trying to…</em> move through a customer call quickly, with the right information and tools in front of me</p>
+      <p><em>But…</em> I am constantly switching between tabs, tools, and panels to find what I need</p>
+      <p><em>Because…</em> the platform is static and manual, and the tools I need aren't all in one place</p>
+      <p><em>Which makes me feel...</em> like the software is in my way instead of helping me serve the customer</p>
+    </blockquote>
+
+    <h3>Design principles</h3>
+    <p>Four principles, built from the research, anchored every call I made on the shell:</p>
+    <ul>
+      <li><strong>Deliver an outcome, not only an output.</strong> Build interfaces that not only show, but also do.</li>
+      <li><strong>Information is always at hand, but never in the way.</strong> Bring information to the expert when and where they need it.</li>
+      <li><strong>We are the hammer, not the house.</strong> Every pixel is about empowering experts to confidently serve customers.</li>
+      <li><strong>Design for imperfection.</strong> AI outputs won't always be perfect, so experts always have a path to take control.</li>
+    </ul>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Ideate</span>
+    <h2>Baseline: the third-peak shell</h2>
+    <p>The starting point was a baseline third-peak iteration of the shell, mostly a layout rework. Two shifts set the stage:</p>
+    <ul>
+      <li><strong>Intuit Assist became a persistent Command Center.</strong> It moved into the engagement and folded the scattered tabs into a single hub — the one starting point for all work in IEP and the point of interaction for the agentic co-pilot.</li>
+      <li><strong>Utilities moved into pop-out windows.</strong> Pulling them out of the right rail gave experts control of their canvas, including second-monitor use for tools like Telephony.</li>
+    </ul>
+    <div class="cs-img-2col">
+      <figure class="cs-img">
+        <img src="/images/iep-03.png" alt="Intuit Assist baseline" loading="lazy" />
+        <figcaption>Baseline shift: Intuit Assist</figcaption>
+      </figure>
+      <figure class="cs-img">
+        <img src="/images/iep-04.png" alt="Command Center baseline" loading="lazy" />
+        <figcaption>Baseline shift: Command Center</figcaption>
+      </figure>
+    </div>
+
+    <h3>The plus: Dynamic Workflow Cards</h3>
+    <p>On top of that baseline, my contribution was a provocation for how the workflow itself should behave. The legacy model assumed the expert did the navigating: open a tool, find the utility, come back, repeat. I flipped it. Instead of going out to a tool, the tool's action comes to the expert as a card, in the flow, triggered by what the customer is saying in real time.</p>
+    <p>Two capabilities make it new:</p>
+    <ul>
+      <li>A <strong>dynamic Workflow / Table of Contents</strong> that builds itself as the call happens, guiding the expert through the right steps for that interaction instead of sitting as a fixed menu.</li>
+      <li><strong>On-Contact Guidance</strong> card content surfaced from the live conversation, so the guidance and actions in each card match the moment at hand.</li>
+    </ul>
+    <p>The cards follow a few rules: <strong>Conversation-driven</strong> — cards surface from the customer's real-time utterances, not from a fixed menu. <strong>Action, not just information</strong> — each card carries a CTA the expert can take on the customer's behalf. <strong>One at a time</strong> — the expert handles one card, then moves to the next. <strong>Never static</strong> — if the conversation changes direction, the cards reshape to match.</p>
+
+    <h3>Three scenarios</h3>
+    <p>I designed the flow against three scenarios, varying how clearly the customer states their problem and how accurate the AI guidance is in response. All three happen on the platform:</p>
+    <ul>
+      <li>High-fidelity utterance, high-accuracy guidance — the clear path.</li>
+      <li>Low-fidelity utterance, low-accuracy guidance — customer gives little to go on.</li>
+      <li>High-fidelity utterance, low-accuracy guidance — customer is clear but the AI still misses.</li>
+    </ul>
+    <figure class="cs-img">
+      <img src="/images/iep-05.gif" alt="Intuit Assist inline guidance" loading="lazy" />
+      <figcaption>Intuit Assist surfaced inline — guidance at the moment it's needed</figcaption>
+    </figure>
+    <figure class="cs-img">
+      <div class="cs-video-wrap">
+        <iframe src="https://player.vimeo.com/video/1199939174" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <figcaption>Dynamic Workflow Cards in the Command Center — the workflow builds itself as the call unfolds</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Test</span>
+    <h2>Research validation</h2>
+    <p>Design direction was validated through a dedicated research program running in parallel, with 15 rounds across five months covering both target-state concepts and third-peak readiness. Methods ranged from Follow-Me-Homes and in-depth interviews to Wizard-of-Oz role plays and concept testing across Product Support and Domain experts.</p>
+    <p>A few signals shaped the iteration directly:</p>
+    <ul>
+      <li><strong>Co-pilot, not pilot.</strong> Experts welcome AI suggestions when they trust the accuracy, and take control earlier when they don't. Expert agency had to be designed in, not assumed.</li>
+      <li><strong>Guidance has a Goldilocks problem.</strong> Too much, too frequent, or off-target guidance gets ignored. One expert called persistent low-value guidance "the mother-in-law you want to get rid of."</li>
+      <li><strong>One size fits none.</strong> What works for one expert role or experience level doesn't work for another, which is why control over the canvas mattered so much.</li>
+    </ul>
+    <figure class="cs-img">
+      <img src="/images/iep-07.png" alt="Final design direction" loading="lazy" />
+      <figcaption>Final design direction — validated through 15 research rounds</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Results</span>
+    <h2>Impact</h2>
+    <p>My specific designs didn't ship verbatim. They pushed the platform from its third-peak state toward the next iteration and fed the direction that later versions carried forward. AI Native IEP went on to ship as a program — a third-peak pilot ran with roughly 400 to 450 Product Support and Domain experts, and the platform later became the new baseline across these experts, retiring the legacy UI.</p>
+    <p>That program saw strong early adoption signals across both expert archetypes that moved onto it:</p>
+    <ul>
+      <li>361 Index-to-Control in AI adoption among Domain experts in Full Service tax during the third-peak pilot.</li>
+      <li>140 Index-to-Control among Domain experts in TurboTax Live Assisted.</li>
+      <li>109 Index-to-Control among Product Support experts.</li>
+    </ul>
+    <p><em>Index-to-Control compares adoption against a control group; 100 is parity, so 361 means roughly 3.6× the control. These are program outcomes from a large cross-functional and research-led effort, not metrics I owned.</em></p>
+  </div>
+
+</CaseStudy>

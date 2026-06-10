@@ -1,0 +1,135 @@
+---
+import CaseStudy from '../../layouts/CaseStudy.astro';
+---
+
+<CaseStudy
+  title="CityU Website Redesign"
+  type="Case Study"
+  timeline="Jan 2019 – Jul 2019"
+  sector="Higher Education"
+  role="E2E lead on Product design, Service design, Design system, User research"
+  platform="Responsive Marketing Website"
+  goal="Redesign City University of Seattle's website to better serve two core audiences: working professionals and international students. The previous site was outdated, difficult to navigate, and failed to communicate the brand's value or support the user's decision-making process."
+  myImpact="I led the end-to-end redesign, applying user-centered design methods including research, content audits, card sorting, usability testing, and high-fidelity prototyping. I collaborated across teams to define architecture, wireframes, and visual direction while ensuring accessibility and responsiveness."
+  outcomes={[
+    "212.5% increase in RFI submissions within one week of launch",
+    "171.2% increase in RFI submissions after one month",
+    "Usability improved significantly for both domestic and international users",
+    "New structure boosted engagement across program-related pages",
+  ]}
+  image="/images/thumb-cityu.jpg"
+>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Empathize</span>
+    <h2>What is CityU?</h2>
+    <p>Since 1973, City University of Seattle has been relentlessly reimagining higher education in the Pacific Northwest and around the world. As an accredited, private, nonprofit university, their mission is to provide career-relevant education to busy professionals who want to advance their careers and compete in the global marketplace.</p>
+
+    <h3>Who is the audience?</h3>
+    <p><strong>Working Professional</strong> — CityU serves the working professional, an individual pursuing a promotion or career change while juggling family and a full-time job. The average CityU student is between 37–45, with 62% of their audience being female. These are working professionals potentially dealing with a desire for career shifting — they want to pivot to a different industry for various reasons. The CityU prospective student understands it might be hard, but refuses to be part of the pack.</p>
+    <p><strong>International Student</strong> — The international student is a traditional college student in their beginning years of education, typically between 18–24. These students are go-getters — willing to do whatever it takes. Passion-driven and determined to succeed, these are individuals that need to feel surrounded by faculty who care about their future.</p>
+
+    <h3>Why did CityU's website need a redesign?</h3>
+    <ul>
+      <li>Streamlining messaging toward the working adult — currently "all about the finish" leaves students feeling like the only thing CityU cares about is finishing their degree.</li>
+      <li>Simplifying the UX experience — currently, unless you know what you were looking for, it's a struggle to find it.</li>
+      <li>Revisiting content to be more concise with a more distinctive brand voice.</li>
+      <li>Evolving design to be more modern, image-forward, and Seattle-focused.</li>
+    </ul>
+    <figure class="cs-img">
+      <img src="/images/cityu-01.jpg" alt="Former CityU website with mid-90s design" loading="lazy" />
+      <figcaption>Former CityU website — mid-90s design with silhouette and solid shadow</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Define</span>
+    <h2>Problem statement</h2>
+    <blockquote class="cs-ps">
+      <p><em>I am...</em> a prospective student exploring options to advance my career</p>
+      <p><em>I am trying to…</em> find clear, relevant information about programs, admissions, and student support on the CityU website</p>
+      <p><em>But…</em> the site is outdated, difficult to navigate, and lacks clear direction</p>
+      <p><em>Because…</em> the content is disorganized, the flow is confusing, and the design doesn't reflect the needs of adult learners</p>
+      <p><em>Which makes me feel...</em> frustrated, uncertain, and less confident in choosing CityU as the right fit for my goals.</p>
+    </blockquote>
+
+    <h3>Identifying problems in the current website</h3>
+    <ul>
+      <li>No clear CTA</li>
+      <li>Navigation menu is split and upside-down</li>
+      <li>The website looks outdated with silhouettes (very 90s)</li>
+      <li>The real brand value is not visible</li>
+      <li>Not able to find program pages easily</li>
+      <li>Color contrast violations — not WCAG compliant</li>
+      <li>Flow hard to follow, no real hierarchy</li>
+      <li>Old, outdated, and duplicative page/content (very bad for SEO)</li>
+    </ul>
+
+    <h3>Content audit</h3>
+    <p>As part of the redesign, we began with a comprehensive content audit to assess the volume, structure, and relevance of existing pages. This foundational step clarified what content needed to be removed, consolidated, or created — offering a clear view of the site's ecosystem and informing strategic redesign decisions.</p>
+    <figure class="cs-img">
+      <img src="/images/cityu-02.jpg" alt="List of all web pages and audit for CityU" loading="lazy" />
+      <figcaption>List of all web pages and audit for CityU — necessity and rationale</figcaption>
+    </figure>
+
+    <h3>Information architecture through card sorting</h3>
+    <p>We conducted card sorting exercises to guide the development of a new Information Architecture (IA). By mapping out the original sitemap and engaging stakeholders in collaborative discussions, we uncovered valuable qualitative insights and validated our IA decisions with user data.</p>
+    <figure class="cs-img">
+      <img src="/images/cityu-03.jpg" alt="Card sorting example for CityU website IA" loading="lazy" />
+      <figcaption>Card sorting example — mapping what the CityU website should look like</figcaption>
+    </figure>
+
+    <h3>Old information architecture</h3>
+    <figure class="cs-img">
+      <img src="/images/cityu-04.png" alt="Old information architecture flow" loading="lazy" />
+      <figcaption>Old information architecture — difficult navigation and extra pages</figcaption>
+    </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Ideate</span>
+    <h2>UX solution: area of study navigation</h2>
+    <p>To resolve usability issues, we reorganized the navigation using areas of study — a structure that aligns more naturally with how users search for programs. This change significantly improved task success rates and made the experience feel intuitive and user-centered.</p>
+
+    <h3>Adding a program finder</h3>
+    <p>One of the biggest usability gaps was program discovery. I designed a program finder that let users filter by interest, delivery method, and location — surfacing the right program without requiring deep navigation knowledge.</p>
+    <figure class="cs-img">
+      <img src="/images/cityu-05.png" alt="Program finder with improved navigation" loading="lazy" />
+      <figcaption>Adding a program finder — improved navigation and faster user access</figcaption>
+    </figure>
+
+    <h3>Competitive analysis findings</h3>
+    <p>Most companies prominently feature their products on the support homepage, often using logos or icons for easy recognition. Microsoft, Atlassian, Adobe, and Google use logos, while Apple uses icons. Clear navigation is a common theme — none use a topic-first approach. These practices informed our product-forward redesign.</p>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Prototype</span>
+    <h2>Wireframes</h2>
+    <p>The team defined fourteen templates needed for development: Homepage, Menu, Search, Program Finder, Program Detail, U.S. Admissions, International Admissions, Student Services, Locations, Partnership, Blog, Blog Post, Catch-All w/ Side Rail, and Catch-All w/o Side Rail. I started with sketches, then moved into low-fidelity wireframes once the flow and content needs were clear.</p>
+    <figure class="cs-img">
+      <img src="/images/cityu-06.jpg" alt="Mobile wireframes for top CityU page templates" loading="lazy" />
+      <figcaption>Mobile wireframes — top CityU page templates</figcaption>
+    </figure>
+
+    <h3>High-fidelity mockups</h3>
+    <p>Once the wireframes were signed off by all stakeholders including development, more of the visual aspects were brought in through the brand style guide, part of a bigger project to launch a new brand campaign for CityU.</p>
+    <div class="cs-img-2col">
+      <figure class="cs-img">
+        <img src="/images/cityu-07.jpg" alt="Desktop hi-fi mockups for top CityU page templates" loading="lazy" />
+        <figcaption>Desktop hi-fi mockups</figcaption>
+      </figure>
+      <figure class="cs-img">
+        <img src="/images/cityu-08.jpg" alt="Mobile hi-fi mockups for top CityU page templates" loading="lazy" />
+        <figcaption>Mobile hi-fi mockups</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Results</span>
+    <h2>Launch impact</h2>
+    <p>The new site launched in July 2019 and showed immediate impact. Our primary KPI — Request for Information (RFI) submissions — increased by 212.5% in the first week. Even after a full month, the gain remained strong at 171.2%. Navigation clarity, visual appeal, and content relevance contributed to improved engagement across key pages, validating our research-driven approach.</p>
+    <p>With validated designs in place, we partnered closely with development to bring the new site to life. We focused on responsive design, accessibility compliance (WCAG 2.1 standards), and performance optimization — providing detailed design specs, annotated wireframes, and collaborating in agile sprints to ensure alignment.</p>
+  </div>
+
+</CaseStudy>

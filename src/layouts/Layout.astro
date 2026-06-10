@@ -1,0 +1,220 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Staff Product Designer at Intuit — designing at the system level." } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>Jared Gase{title !== 'Home' ? ` — ${title}` : ''}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Almarai:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="header-inner">
+        <a href="/" class="logo-link">
+          <img src="/images/jg_icon.webp" alt="Jared Gase" class="nav-logo" />
+        </a>
+        <nav class="desktop-nav">
+          <a href="/about" class:list={[{ active: currentPath.startsWith('/about') }]}>About</a>
+          <a href="/work" class:list={[{ active: currentPath.startsWith('/work') }]}>Work</a>
+          <a href="/contact" class:list={[{ active: currentPath.startsWith('/contact') }]}>Contact</a>
+        </nav>
+        <button class="mobile-toggle" id="menuToggle" aria-label="Menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="/about">About</a>
+        <a href="/work">Work</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="page">
+      <slot />
+    </main>
+
+    <footer>
+      <div class="footer-inner">
+        <a href="/" class="footer-logo">
+          <img src="/images/jg_icon.webp" alt="Jared Gase" />
+        </a>
+        <div class="footer-right">
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/jared-gase/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/jared_photo/" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+            </a>
+            <a href="https://dribbble.com/jaredgase" target="_blank" rel="noopener" aria-label="Dribbble">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.017-8.04 6.4 1.73 1.358 3.92 2.166 6.29 2.166 1.42 0 2.77-.29 4-.816zm-11.62-2.073c.232-.4 3.045-5.055 8.332-6.765.135-.045.27-.084.405-.12-.26-.585-.54-1.167-.832-1.74C7.17 12.03 2.386 12.006 1.926 12h-.07c0 3.2 1.14 6.14 3.027 8.38zm-2.95-10.498c.47.014 4.622.086 8.812-1.19C8.19 6.015 6.386 3.967 6.115 3.67 4.05 4.95 2.47 7.012 1.543 9.47zm6.086-7.618c.29.309 2.13 2.366 4.166 5.37 4.29-1.61 6.105-4.046 6.31-4.34C16.49 1.45 14.315.643 12 .643c-1.59 0-3.093.355-4.44.98zm10.717 3.97c-.235.317-2.2 2.914-6.65 4.74.278.578.55 1.168.79 1.77.086.22.166.44.244.658 3.443-.435 6.86.26 7.19.333-.016-2.786-.9-5.37-2.574-7.5z"/></svg>
+            </a>
+          </div>
+          <div class="footer-contact">
+            <p>(619) 997 - 2058</p>
+            <p><a href="mailto:jdgase@gmail.com">jdgase@gmail.com</a></p>
+            <p>© 2025 Jared Gase</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('mobileNav');
+      toggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --white: #ffffff;
+    --black: #000000;
+    --accent: hsl(196, 95%, 14.5%);      /* dark teal — nav text, headings */
+    --accent-mid: hsl(201, 100%, 34%);   /* medium teal — links, h1 on home */
+    --light-bg: hsl(240, 11%, 93%);      /* light gray sections */
+    --gutter: 4vw;
+    --max-width: 1200px;
+  }
+
+  html {
+    font-family: 'Almarai', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--black);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body { min-height: 100vh; display: flex; flex-direction: column; }
+  main { flex: 1; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  /* ─── Header ─────────────────────────────── */
+  #header {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1rem var(--gutter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo { height: 40px; width: 40px; border-radius: 50%; }
+
+  .desktop-nav { display: flex; gap: 2rem; }
+
+  .desktop-nav a {
+    font-family: 'Almarai', sans-serif;
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    transition: opacity 0.15s;
+    padding-bottom: 2px;
+  }
+
+  .desktop-nav a:hover { opacity: 0.65; }
+
+  .desktop-nav a.active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .mobile-toggle span {
+    display: block; width: 22px; height: 1px; background: var(--accent);
+  }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem var(--gutter) 1.5rem;
+  }
+
+  .mobile-nav.open { display: flex; }
+  .mobile-nav a { font-size: 1rem; color: var(--accent); }
+
+  /* ─── Footer ─────────────────────────────── */
+  footer {
+    border-top: 1px solid #e5e5e5;
+    padding: 2rem var(--gutter);
+  }
+
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .footer-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+
+  .footer-right { text-align: right; }
+
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-social a { color: var(--black); transition: opacity 0.15s; }
+  .footer-social a:hover { opacity: 0.6; }
+
+  .footer-contact { font-size: 0.85rem; line-height: 1.8; }
+  .footer-contact a { color: var(--accent-mid); }
+  .footer-contact a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .desktop-nav { display: none; }
+    .mobile-toggle { display: flex; }
+    .footer-inner { align-items: flex-start; }
+    .footer-logo img { width: 60px; height: 60px; }
+  }
+</style>
