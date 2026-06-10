@@ -67,73 +67,96 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
 
     <h3>Requirements</h3>
     <p>Business System Analysis (BSA) collaborates closely with TurboTax to understand and document their needs, creating Business Requirement Documents (BRDs) that serve as a foundation for product experts to perform their tasks effectively. PMs in collaboration with Design then use these BRDs as a baseline to create Product Requirement Documents (PRDs) — making them more robust and comprehensive, accounting for the target state with a platform mindset.</p>
-    <div class="cs-img-2col">
-      <figure class="cs-img">
-        <img src="/images/migration-03a.png" alt="Business Requirements Document example" loading="lazy" />
-        <figcaption>Business Requirements Document (BRD)</figcaption>
-      </figure>
-      <figure class="cs-img">
-        <img src="/images/migration-03b.gif" alt="Wiki Product Requirements Document example" loading="lazy" />
-        <figcaption>Wiki / Product Requirements Document (PRD)</figcaption>
-      </figure>
-    </div>
+    <figure class="cs-img">
+      <img src="/images/migration-03a.png" alt="Business Requirements Document example" loading="lazy" />
+      <figcaption>Business Requirements Document (BRD)</figcaption>
+    </figure>
+    <figure class="cs-img">
+      <img src="/images/migration-03b.gif" alt="Wiki Product Requirements Document example" loading="lazy" />
+      <figcaption>Wiki / Product Requirements Document (PRD)</figcaption>
+    </figure>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Ideate</span>
     <h2>Product support capabilities</h2>
-    <p>Unlike typical projects where one person focuses on a single capability, this initiative demands close coordination across the entire organization. I developed a framework that standardized and guided cross-team collaboration. Before diving into any specific capability, I first assessed whether it was already present and mature within IEP or if it needed to be newly built:</p>
-    <ul>
-      <li><strong>No Enhancement Needed</strong> — the capability is already mature and durable enough to handle all Salesforce use cases.</li>
-      <li><strong>Enhancement Required</strong> — the capability exists in the platform but is not yet durable enough to meet the needs of product experts.</li>
-      <li><strong>Net New</strong> — the capability does not currently exist in the platform and will need to be built from scratch.</li>
-    </ul>
+    <p>Unlike typical projects where one person focuses on a single capability, this initiative demands close coordination across the entire organization to deliver cohesive, E2E results. To meet this challenge, I developed a framework that standardized and guided cross-team collaboration, which proved essential in driving the product design smoothly from conception to launch. As part of this approach, before diving into any specific capability, I first assessed whether it was already present and mature within Intuit Expert Portal (IEP) or if it needed to be newly built—ensuring alignment with the broader system and reducing redundancy.</p>
+    <p><strong>No Enhancement Needed:</strong><br />The capability is already mature and durable enough to handle all Salesforce use cases. It requires no further enhancements for product experts to utilize it effectively.</p>
+    <p><strong>Enhancement Required:</strong><br />The capability exists in the platform but is not yet durable enough to meet the needs of product experts. Enhancing this capability will make it more durable and reliable, ensuring it can handle the required use cases.</p>
+    <p><strong>Net New:</strong><br />The capability does not currently exist in the platform and will need to be built from scratch. Not only will it be essential for the product experts, but it must also be designed to be durable and scalable, allowing other experts within the platform to use it effectively as well.</p>
 
     <h3>E2E Capability Layout</h3>
-    <p>I created a comprehensive E2E artifact for TurboTax product experts, encapsulating the lifecycle of a call using the IDEAL (Identify, Define, Explore, Act, Lookback) framework. This framework breaks down the various capabilities and tags the design owner of each. This influenced leadership, aiding in roadmap planning, identifying risks by highlighting design gaps, and suggesting resource allocation of designers.</p>
+    <p>After breaking down the different status it was time to layout all the capabilities into some type of grid. This is where I created a comprehensive E2E artifact for TurboTax product experts, encapsulating the lifecycle of a call using the IDEAL (Identify, Define, Explore, Act, Lookback) framework. This framework breaks down the various capabilities and tags the design owner of each. This will help internal team members access and review the designs pertinent to the migration. Additionally, it serves as a valuable resource for other designers and cross-functional partners to understand the full spectrum of capabilities used by product experts, and provides a direct line for inquiries or further discussions.</p>
+    <p>This artifact has also influenced leadership, aiding in roadmap planning, and identifying risks by highlighting design gaps, but also suggesting resource allocation of designers, where each designer could be placed based on similar, like-minded, capabilities.</p>
+    <ol>
+      <li><strong>Parent Capability</strong> — Capability ladders up to a [Parent capability name]</li>
+      <li><strong>Designer Name</strong> — The owner of this capability is [Designer Name].</li>
+      <li><strong>Figma link</strong> — Figma link to that specific capability: [Insert Link].</li>
+      <li><strong>Business Unit</strong> — Capability is specific to a business or is product agnostic.</li>
+      <li><strong>Phase</strong> — Capability was implemented in [Phase of the Project].</li>
+      <li><strong>Status</strong> — Capability needs to be built: [No enhancement, Enhanced, or Net new].</li>
+    </ol>
     <figure class="cs-img">
       <img src="/images/migration-04.png" alt="E2E capability layout and user flow" loading="lazy" />
-      <figcaption>E2E capability layout — the full lifecycle of a product expert call</figcaption>
+      <figcaption>Breakdown of one screen of one flow of one capability</figcaption>
     </figure>
-    <div class="cs-img-2col">
-      <figure class="cs-img">
-        <img src="/images/migration-05a.png" alt="IDS design system components" loading="lazy" />
-        <figcaption>IDS design system components used in IEP</figcaption>
-      </figure>
-      <figure class="cs-img">
-        <img src="/images/migration-05b.gif" alt="Capability evaluation in action" loading="lazy" />
-        <figcaption>Capability evaluation system in action</figcaption>
-      </figure>
-    </div>
+
+    <h4>Capability Creation</h4>
+    <p>For the actual work of each capability, I took the lead on the design while closely collaborating with the capability owner, if one was assigned. My focus was on ensuring that the product experts' use cases were fully addressed, without compromising the overall design. I worked within the existing system to enhance the capability's durability, maintaining the core functions and features to avoid disrupting current users who might struggle with a completely new interface. This involved adhering to the established design system components and ensuring that all changes fit seamlessly into the existing workflow.</p>
+    <figure class="cs-img">
+      <img src="/images/migration-05a.png" alt="IDS design system components" loading="lazy" />
+      <figcaption>IDS design system components used in IEP</figcaption>
+    </figure>
+    <figure class="cs-img">
+      <img src="/images/migration-05b.gif" alt="Capability evaluation in action" loading="lazy" />
+      <figcaption>Create Engagement: One of the dozens of features built during the migration</figcaption>
+    </figure>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Test</span>
     <h2>Roundtable sessions</h2>
     <p>After the designs have been reviewed for initial sign-off, we ensure they meet our experts' standards. We typically conduct several rounds of roundtable sessions where the experts walk through the designs and provide feedback in any form. We then synthesize the feedback from all sessions to identify any common themes that need addressing.</p>
+    <figure class="cs-img">
+      <img src="/images/migration-06-research.png" alt="Reduct user research synthesis tool" loading="lazy" />
+      <figcaption>Reduct: An AI tool to help us synthesize data from user research</figcaption>
+    </figure>
+  </div>
 
-    <h3>Implementation</h3>
-    <p>We ensured that all development specifications, including edge cases, error states, and interactions, were thoroughly prepared. We used durable components from our design system to avoid custom code or one-off solutions. After development, we provided a pre-production link to test the build through various scenarios and edge cases, documenting discrepancies for the team. Once we had internal sign-off, the build moved to User Acceptance Testing (UAT).</p>
+  <div class="cs-section">
+    <span class="cs-section-label">Implementation</span>
+    <h2>Implementation</h2>
+    <p>We will ensure that all development specifications, including edge cases, error states, and interactions, are thoroughly prepared. We'll use durable components from our design system to avoid custom code or one-off solutions.</p>
+    <p>While the designs are being coded, the development team will provide updates during our daily scrum meetings. They will share their builds with me to ensure pixel-perfect accuracy. After that, they will provide a pre-production link so I can test the build, trying to break it through various scenarios and edge cases. I will then document any discrepancy and share it with them.</p>
+    <p>Once we have internal sign-off, the build will move to User Acceptance Testing (UAT). I will help create scenarios for real experts to test the build in both typical and complex situations, ensuring a pass/fail at every step. Any failures will be documented and addressed. Once it passes UAT, the build will go to production.</p>
+    <figure class="cs-img">
+      <img src="/images/migration-07-final-features.gif" alt="Example screens of new archetype in IEP" loading="lazy" />
+      <figcaption>A few example screens of the new archetype being introduced into Intuit Expert Portal (IEP)</figcaption>
+    </figure>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Results</span>
     <h2>Product launch summary</h2>
-    <p>We successfully migrated and scaled 100% of TurboTax product support experts across our partners from Salesforce to IEP for the TY24 season. This transition was seamless, with Tier 1 product experts trained solely on IEP and no longer using Salesforce. Our experts performed exceptionally well, handling a total of 4 million contacts — a 42% increase from the previous year — while improving in Average Handle Time (AHT) and tNPS.</p>
+    <p>We successfully <strong>migrated and scaled 100% of TurboTax product support experts</strong> across our partners from Salesforce to IEP for the TY24 season. This transition was seamless, with Tier 1 product experts trained solely on IEP and no longer using Salesforce. Our experts performed exceptionally well, handling a total of 4 million contacts, <strong>a 42% increase from the previous year</strong>, while improving in Average Handle Time (AHT) and tNPS.</p>
 
     <h3>Why this is significant</h3>
-    <p>The TurboTax product support experts managed 455K engagements over the last four days of the second peak alone, demonstrating the robustness of the new system. Key metrics include a 31% increase in the number of experts, a 95% contact handle rate, a 5% reduction in AHT to 17.5 minutes, and a tNPS score of 54.5, up 1.1 points from the previous year. The experts gave the new platform a Tools Readiness score of 82%, reflecting their confidence and satisfaction.</p>
+    <p>The TurboTax product support experts managed <strong>455K engagements over the last four days</strong> of the second peak alone, demonstrating the robustness of the new system. Key metrics include a <strong>31% increase in the number of experts, a 95% contact handle rate, a 5% reduction in AHT to 17.5 minutes</strong>, and a tNPS score of 54.5, up 1.1 points from the previous year. The experts gave the new platform a <strong>Tools Readiness score of 82%</strong>, reflecting their confidence and satisfaction.</p>
 
     <h3>Season tooling metrics</h3>
-    <p>The engagement pop-up success rate was an impressive 96%, and the IA Escalation Deflection Rate reached 16%. Between the third peak of TY23 and the end of the second peak for TY24, we rolled out over 15 features in IEP, including multi-tab support, daily updates, tier 2 escalation deflection, survey triggering, identity escalation and deactivation forms, T10 diagnostic fixes, and various fixes for layout issues and engagement activity tracking.</p>
+    <p>The <strong>engagement pop-up success rate was an impressive 98%</strong>, and the <strong>IA Escalation Deflection Rate reached 18%</strong>. Between the third peak of TY23 and the end of the second peak for TY24, we <strong>rolled out over 15 features in IEP</strong>, including multi-tab support, daily updates, tier 2 escalation deflection, survey triggering, identity escalation and deactivation forms, T10 diagnostic fixes, and various fixes for layout issues and engagement activity tracking.</p>
 
     <h3>Expert feedback</h3>
-    <p>Experts praised the system, noting its efficiency and reliability. Some highlights from their feedback include: "It's a great and efficient system that I have come to use reliably." "It's a lot easier and way more efficient." "Overall, it is much improved." "AI and the new website were an adjustment but very great changes for efficiency and ease of completing tasks."</p>
+    <p>Experts praised the system, noting its efficiency and reliability:</p>
+    <p><em>"It's a great and efficient system that I have come to use reliably."</em></p>
+    <p><em>"It's a lot easier and way more efficient."</em></p>
+    <p><em>"Overall, it is much improved."</em></p>
+    <p><em>"AI and the new website were an adjustment but very great changes for efficiency and ease of completing tasks."</em></p>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Future</span>
-    <h2>Future</h2>
+    <h2>What we have in store next</h2>
     <p>We all know that design is an ongoing process. Once a design is released, we monitor its performance and gather analytics. We then use these insights and metrics to continuously refine and iterate, uncovering new use cases and improving flows and patterns to enhance the user experience.</p>
     <p>As we roll out these capabilities, we plan to leverage them across the platform, ensuring that other archetypes can also benefit from the same advantages.</p>
   </div>

@@ -12,9 +12,9 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
   goal="Improve the support experience for TurboTax Product Support Experts by redesigning how Tier 1 experts connect with Tier 2 SMEs. The goal was to reduce friction, automate context sharing, and integrate gen-AI-powered assistance (Agentic) — ultimately improving efficiency, deflecting unnecessary escalations, and enhancing customer satisfaction."
   myImpact="As the E2E lead designer, I guided the entire UX process, from discovery through launch. I conducted user research (Follow-Me-Homes), mapped escalation flows, defined edge cases, and designed scalable components within our design system. I also partnered closely with engineering and QA to test and validate every interaction, ensuring platform durability and adoption."
   outcomes={[
-    "40% year-over-year reduction in Tier 1 escalations",
-    "24% escalation deflection during early cohort testing",
-    "20 minutes saved per deflected escalation",
+    "<strong>40% year-over-year reduction</strong> in Tier 1 escalations",
+    "<strong>24% escalation deflection</strong> during early cohort testing",
+    "<strong>20 minutes saved</strong> per deflected escalation",
   ]}
   image="/images/thumb-agentic-support.jpg"
 >
@@ -32,14 +32,14 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <p>To better understand the current flow and experience, and to gain empathy for our experts, I conducted a handful of user research sessions known as Follow Me Homes. It became painfully clear that the experience was far from optimal. The experts have to manually input several pieces of information that the system should already know, leading to significant delays of up to two minutes. This presents a major opportunity to reduce Average Handling Time (AHT) and Customer Service Time (CST), which are primary metrics for evaluating expert performance.</p>
     <figure class="cs-img">
       <img src="/images/agentic-01.png" alt="Follow Me Home research session with a TurboTax Product Expert" loading="lazy" />
-      <figcaption>A Follow Me Home being conducted with a TurboTax Product Expert</figcaption>
+      <figcaption>A screenshot of a Follow Me Home being conducted with a TurboTax Product Expert</figcaption>
     </figure>
 
     <h3>The omni-chat problem</h3>
     <p>The omni-chat was very archaic and carried zero context with it. It was not plugged into the Tier 1 data to know basic knowledge like what site they are located at. Before connecting to a Tier 1 it would ask several questions which would delay connecting to a Tier 2. There were so many questions that it could take up to 2 minutes for Tier 1 to answer all of them.</p>
-    <figure class="cs-img">
+    <figure class="cs-img cs-img-half">
       <img src="/images/agentic-02.gif" alt="Current Tier 1 to Tier 2 escalation experience in Salesforce" loading="lazy" />
-      <figcaption>A demo of the current Tier 1 to Tier 2 chat escalation feature in Salesforce — zero context carried, two-minute delays</figcaption>
+      <figcaption>A demo of the current tier 1 to tier 2 chat escalation feature is Salesforce</figcaption>
     </figure>
   </div>
 
@@ -61,14 +61,19 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <p>The Tier 1 capability needs to be seamlessly integrated within Intuit Assist. Before automatically connecting to a Tier 2 expert, Intuit Assist should offer de-escalation with self-help answers from its curated knowledge base via the QnA plug-in. If a Tier 1 expert determines they need further assistance, the Human Handover (HHO) plug-in is activated, connecting them to the next available Tier 2 expert. For Tier 2 experts, the existing Telephony widget will automatically provide all necessary context, ensuring a smooth transition.</p>
     <figure class="cs-img">
       <img src="/images/agentic-03.png" alt="Requirements documentation" loading="lazy" />
-      <figcaption>Business Requirements Document — mapping what the system needed to know and do</figcaption>
+      <figcaption>Business Requirements Document (BRD)</figcaption>
     </figure>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Ideate</span>
     <h2>User flows</h2>
-    <p>There are two paths an expert can choose before connecting to a Tier 2: ask their question first, or request a Tier 2 expert first. Both options require an answer before connecting. This approach supports our de-escalation strategy, where the Tier 1 expert attempts to resolve the issue first.</p>
+    <p>There are two paths an expert can choose before connecting to a Tier 2:</p>
+    <ol>
+      <li>Ask their question first.</li>
+      <li>Request a Tier 2 expert first.</li>
+    </ol>
+    <p>Both options require an answer before connecting. This approach supports our de-escalation strategy, where the Tier 1 expert attempts to resolve the issue first.</p>
 
     <h3>Tier 1 flow: ask question first</h3>
     <p>When a Tier 1 expert is stuck, they go to Intuit Assist for assistance. They can ask their question and review the response. If the answer is insufficient, they can then request a Tier 2 chat. The system recognizes they've just asked a question and initiates the routing process. Before automatically connecting them, we confirm the current case is the one they need help with. Once confirmed, Intuit Assist generates a call summary and verifies it with the Tier 1 expert. After confirmation, they're connected to a Tier 2 expert.</p>
@@ -87,7 +92,7 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
   <div class="cs-section">
     <span class="cs-section-label">Prototype</span>
     <h2>Component documentation</h2>
-    <p>Since this is a brand-new experience built for IEP, meticulous documentation on its construction and functionality is crucial for a successful build, considering all its different states. Engineering needs to understand each inversion pattern to ensure the component functions correctly. Additionally, we must create this component at the platform level, making it durable and versatile enough for any other use case or archetype within IEP to utilize.</p>
+    <p>Since this is a brand-new experience built for IEP, meticulous documentation on its construction and functionality is crucial for a successful build, considering all its different states. Engineering needs to understand each inversion pattern to ensure the component functions correctly. Additionally, we must create this component at the platform level, making it durable and versatile enough for any other use case or archetype within IEP to utilize. The component should also adhere to the established UI patterns in our design system, ensuring it integrates seamlessly into the existing workflow.</p>
     <figure class="cs-img">
       <img src="/images/agentic-05.png" alt="Specs documentation for dev handoff" loading="lazy" />
       <figcaption>Specs documentation handed off to dev to ensure pixel-perfect accuracy</figcaption>
@@ -98,10 +103,6 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <span class="cs-section-label">Test</span>
     <h2>Smaller cohort launch</h2>
     <p>It was clear that the new design was a better experience, so we launched a small test to 20% of Tier 1 product experts to run water through the pipes. The test results were excellent, with 24% of escalation attempts deflected, reducing the percentage of contacts with escalations from 10.2% to 6.1% (60 ITC). The overall AHT is 99 ITC, and we observed almost 20 minutes of savings when escalations were deflected. Due to this success, we scaled the new experience to 100% of product experts a few weeks later.</p>
-    <figure class="cs-img">
-      <img src="/images/agentic-06.gif" alt="Happy path to connect a Tier 1 expert to a Tier 2 SME" loading="lazy" />
-      <figcaption>Happy path to connect a Tier 1 Product Expert to a Tier 2 Subject Matter Expert</figcaption>
-    </figure>
   </div>
 
   <div class="cs-section">
@@ -110,6 +111,10 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <p>We ensured that all development specifications, including edge cases, error states, and interactions, were thoroughly prepared. We used durable components from our design system to avoid custom code or one-off solutions.</p>
     <p>While the designs were being coded, the development team provided updates during our daily scrum meetings. They shared their builds with me to ensure pixel-perfect accuracy. After that, they provided a pre-production link so I could test the build through various scenarios and edge cases, documenting any discrepancies for the team.</p>
     <p>Once we had internal sign-off, the build moved to User Acceptance Testing (UAT). I helped create scenarios for real experts to test the build in both typical and complex situations, ensuring a pass/fail at every step. Any failures were documented and addressed. Once it passed UAT, the build went to production.</p>
+    <figure class="cs-img">
+      <img src="/images/agentic-06.gif" alt="Happy path to connect a Tier 1 expert to a Tier 2 SME" loading="lazy" />
+      <figcaption>Happy path to connect a Tier 1 Product Expert to a Tier 2 Subject Matter Expert</figcaption>
+    </figure>
   </div>
 
   <div class="cs-section">
@@ -120,7 +125,7 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
 
   <div class="cs-section">
     <span class="cs-section-label">Future</span>
-    <h2>Future</h2>
+    <h2>Design is never done</h2>
     <p>We all know that design is an ongoing process. Once a design is released, we monitor its performance and gather analytics. We then use these insights and metrics to continuously refine and iterate, uncovering new use cases and improving flows and patterns to enhance the user experience.</p>
     <p>As we mature our capabilities, we plan to leverage them across the platform, ensuring that other archetypes can also benefit from the same advantages.</p>
   </div>
