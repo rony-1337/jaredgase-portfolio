@@ -70,19 +70,21 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <span class="cs-section-label">Ideate</span>
     <h2>Baseline: the third-peak shell</h2>
     <p>The starting point was a baseline third-peak iteration of the shell, mostly a layout rework. Two shifts set the stage:</p>
-    <ul>
-      <li><strong>Intuit Assist became a persistent Command Center.</strong> It moved into the engagement and folded the scattered tabs into a single hub — the one starting point for all work in IEP and the point of interaction for the agentic co-pilot.</li>
-      <li><strong>Utilities moved into pop-out windows.</strong> Pulling them out of the right rail gave experts control of their canvas, including second-monitor use for tools like Telephony.</li>
-    </ul>
-    <div class="cs-img-2col">
-      <figure class="cs-img">
-        <img src="/images/iep-03.png" alt="Intuit Assist baseline" loading="lazy" />
-        <figcaption>Baseline shift: Intuit Assist</figcaption>
-      </figure>
-      <figure class="cs-img">
-        <img src="/images/iep-04.png" alt="Command Center baseline" loading="lazy" />
-        <figcaption>Baseline shift: Command Center</figcaption>
-      </figure>
+    <div class="cs-img-2col cs-baseline-cols">
+      <div>
+        <figure class="cs-img">
+          <img src="/images/iep-03.png" alt="Intuit Assist baseline" loading="lazy" />
+        </figure>
+        <h4>Intuit Assist became a persistent Command Center.</h4>
+        <p>It moved into the engagement and folded the scattered tabs into a single hub — the one starting point for all work in IEP and the point of interaction for the agentic co-pilot.</p>
+      </div>
+      <div>
+        <figure class="cs-img">
+          <img src="/images/iep-04.png" alt="Command Center baseline" loading="lazy" />
+        </figure>
+        <h4>Utilities moved into pop-out windows.</h4>
+        <p>Pulling them out of the right rail gave experts control of their canvas, including second-monitor use for tools like Telephony.</p>
+      </div>
     </div>
 
     <h3>The plus: Dynamic Workflow Cards</h3>
@@ -147,7 +149,8 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <li><strong>140 Index-to-Control</strong> among Domain experts in TurboTax Live Assisted.</li>
       <li><strong>109 Index-to-Control</strong> among Product Support experts.</li>
     </ul>
-    <p><em>Index-to-Control compares adoption against a control group; 100 is parity, so 361 means roughly 3.6× the control. These are program outcomes from a large cross-functional and research-led effort, not metrics I owned. My contribution was the design leadership on the shell and the interaction shifts that helped shape the direction this work built on.</em></p>
+    <p><em>*Index-to-Control compares adoption against a control group; 100 is parity, so 361 means roughly 3.6× the control.</em></p>
+    <p><em>These are program outcomes from a large cross-functional and research-led effort, not metrics I owned. My contribution was the design leadership on the shell and the interaction shifts that helped shape the direction this work built on.</em></p>
   </div>
 
   <div class="cs-section">
@@ -158,3 +161,23 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
   </div>
 
 </CaseStudy>
+
+<style is:global>
+  .cs-baseline-cols .cs-img {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .cs-baseline-cols h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    text-align: left;
+  }
+
+  .cs-baseline-cols p {
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+</style>
