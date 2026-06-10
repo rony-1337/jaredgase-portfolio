@@ -112,15 +112,33 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <li>"It doesn't make a ton of sense to be honest. Like, I mean, it just, it doesn't call to me to like click ... like as I like look over like topics." – Ximena A.</li>
       <li>"I don't know if finding a way to break it out a little bit more in design to draw attention. Cause then maybe I will click carousel, but I didn't notice it." – Matt H.</li>
     </ul>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Ideate</span>
+    <h2>Competitive analysis</h2>
+    <p>I conducted a competitive analysis of several support websites compared to QuickBooks. Most companies prominently feature their products on the support homepage, often using logos or icons for easy recognition. For instance, Microsoft, Atlassian, Adobe, and Google use logos, while Apple uses icons, and Samsung groups products by type.</p>
+    <p>Clear navigation is also a common theme. Many companies provide a direct way to browse all products, such as Dell's button under the search bar, and Intel and Cisco's use of product categories. These practices enhance user experience and can be valuable for improving our own support websites. None use a topic-first approach.</p>
+    <figure class="cs-img">
+      <img src="/images/audit-06-competitive.png" alt="Competitive analysis of support websites" loading="lazy" />
+      <figcaption>Competitive analysis — how leading companies surface products on their support homepages</figcaption>
+    </figure>
 
     <h3>Opportunities</h3>
-    <p>The audit revealed issues with the hierarchy and the lack of a product-first approach. A product-first approach will address a wide range of customer issues:</p>
+    <p>The audit revealed issues with the hierarchy and the lack of a product-first approach. Moving to a product-first approach will address a wide range of customer issues:</p>
     <ul>
       <li>Replace the Product Selector with the top 6 most popular products and a "View all products" link.</li>
       <li>Each product will have its own page with topic cards, and topics will be removed from the main navigation.</li>
       <li>The information architecture should prioritize products: Intuit → BU → Product → Topic → Subtopic → Article.</li>
       <li>Align with marketing by adding a support section to existing product pages.</li>
     </ul>
+
+    <h3>New user flow</h3>
+    <p>A customer lands on the support site to learn about timesheet management. They don't see their product on the product support homepage, so they click "View All." On the full products page, they find TSheets. The TSheets product page then displays a topic for timesheet management — a clean, three-step path vs. the current multi-step dead end.</p>
+    <figure class="cs-img">
+      <img src="/images/audit-07a-opportunities-flow.png" alt="New product-first user flow" loading="lazy" />
+      <figcaption>New user flow — product-first path from homepage to relevant support content</figcaption>
+    </figure>
   </div>
 
   <div class="cs-section">
@@ -139,8 +157,25 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <figcaption>Dynamic navigation — content and nav adapts the moment a product is selected</figcaption>
     </figure>
 
-    <h3>New user flow</h3>
-    <p>A customer lands on the support site to learn about timesheet management. They don't see their product on the product support homepage, so they click "View All." On the full products page, they find TSheets. The TSheets product page then displays a topic for timesheet management — a clean, three-step path vs. the current multi-step dead end.</p>
+    <h2>Wireframe and high fidelity mockups</h2>
+    <p>The wireframe presents a streamlined user experience where customers first select their product, then browse relevant topics without any hidden elements. This clear, step-by-step flow enhances confidence in choosing the right product for the help they need.</p>
+    <h3>Benefits</h3>
+    <ul>
+      <li>Remove the product selector.</li>
+      <li>Display the top QuickBooks products on the homepage with a link to view all.</li>
+      <li>Remove topics from navigation.</li>
+      <li>Product pages will show only relevant topics, with no hidden content.</li>
+      <li>Eliminate carousels to reduce clutter.</li>
+      <li>The Product Topic page will list content for the selected product and topic.</li>
+    </ul>
+    <figure class="cs-img">
+      <img src="/images/audit-07b-opportunities-wireframe.gif" alt="Wireframe of the product-first support redesign" loading="lazy" />
+      <figcaption>Wireframe — product-first support homepage and product page templates</figcaption>
+    </figure>
+    <figure class="cs-img">
+      <img src="/images/audit-07c-opportunities-mock.gif" alt="High-fidelity mockup of the product-first redesign" loading="lazy" />
+      <figcaption>High-fidelity mockup — the QuickBooks support site reimagined with a product-first approach</figcaption>
+    </figure>
   </div>
 
   <div class="cs-section">

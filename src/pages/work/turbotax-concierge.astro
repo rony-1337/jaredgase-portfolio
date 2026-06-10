@@ -26,13 +26,19 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <span class="cs-section-label">Empathize</span>
     <h2>What is a Concierge?</h2>
     <p>Concierge is a seller and guide role that sits between a lead and a TurboTax expert. Think of it as a white-glove layer — someone who reduces uncertainty, answers product questions, captures lead information, and connects customers to the right expert through scheduling or warm transfer. Not a tax expert, but the person who makes sure you end up with the right one.</p>
-    <p>In simple terms: Concierge turns interest into action. Before Activate Experts, this role didn't exist inside TurboTax. There was no structured intake layer, no defined seller archetype, and no tooling built around it. Most of the sales motion happened post-auth, inside a product experience not designed for pre-sale conversations.</p>
+    <figure class="cs-img cs-img-half">
+      <img src="/images/concierge-01.png" alt="TurboTax Concierge agent" loading="lazy" />
+      <figcaption>In simple terms: Concierge turns interest into action.</figcaption>
+    </figure>
+    <p>Before Activate Experts, this role didn't exist inside TurboTax. There was no structured intake layer, no defined seller archetype, and no tooling built around it. Most of the sales motion happened post-auth, inside a product experience not designed for pre-sale conversations.</p>
 
     <h3>What is Activate Experts?</h3>
-    <p>Activate Experts is the broader initiative Concierge sits inside of — a strategic growth program aimed at making TurboTax the go-to destination for Assisted filers. TurboTax had historically a small share of a massive addressable market, with tens of millions of potential customers filing through CPAs, tax stores, and other competitors. The premise: turn the expert network from a passive service layer into an active growth engine. Concierge is the front end of that engine.</p>
+    <p>Activate Experts is the broader initiative Concierge sits inside of — a strategic growth program aimed at making TurboTax the go-to destination for Assisted filers. TurboTax had historically a small share of a massive addressable market, with tens of millions of potential customers filing through CPAs, tax stores, and other competitors. <strong>The premise:</strong> turn the expert network from a passive service layer into an active growth engine. Concierge is the front end of that engine.</p>
     <figure class="cs-img">
-      <img src="/images/concierge-01.png" alt="A closer look at the Activate Experts program and the Concierge archetype" loading="lazy" />
-      <figcaption>A closer look at the Activate Experts program</figcaption>
+      <div class="cs-video-wrap">
+        <iframe src="https://player.vimeo.com/video/1199939256" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <figcaption>A closer look at the Activate Experts program.</figcaption>
     </figure>
   </div>
 
@@ -49,16 +55,25 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
 
     <h3>Business goal</h3>
     <p>Design and ship an end-to-end Concierge experience across virtual and in-store archetypes that enables a new seller role to drive conversion at scale, supports the Activate Experts growth initiative, and lays the foundation for an AI-native future.</p>
+  </div>
 
-    <h3>Research: longitudinal roundtables</h3>
+  <div class="cs-section">
+    <span class="cs-section-label">Research</span>
+    <h2>Longitudinal roundtables</h2>
     <p>Before any screens, I ran a series of in-person research roundtables with active Concierge agents — the same small group across three sessions spanning October 2025 through February 2026. This longitudinal approach let me test evolving concepts with people who already had context, so each session built on the last rather than starting from zero. I moderated all three sessions and built the design provocations tested in each one.</p>
+    <figure class="cs-img">
+      <div class="cs-video-wrap">
+        <iframe src="https://player.vimeo.com/video/1199939255" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <figcaption>Concierges were overwhelmingly enthusiastic about IEP over Salesforce, especially around AI, ecosystem integration, and cross-team visibility.</figcaption>
+    </figure>
     <ul>
       <li><strong>Oct 2025 — Roundtable 1: Connect to Expert.</strong> Validated the v2 redesign: automated expert matching, scheduling logic, and the new inline flow replacing modal-heavy patterns.</li>
       <li><strong>Dec 2025 — Roundtable 2: Early provocations.</strong> Tested early v3 concepts around feed-based lead management, persistent notes, and conversation-first LQQ flows.</li>
       <li><strong>Feb 2026 — Roundtable 3: Pricing tools and future concepts.</strong> Concept-tested embedded pricing vs. AIC-based flow, and ran provocations around expert search, store locator, and an AI-native Concierge in IEP.</li>
     </ul>
 
-    <h3>Key themes from research</h3>
+    <h3>Key themes</h3>
     <ul>
       <li><strong>Notes are infrastructure, not a feature.</strong> Agents need to start writing the moment someone picks up — before LQQs begin, before a path is chosen. Notes can't be buried, locked, or fragmented across tabs.</li>
       <li><strong>Conversation-first over form-first.</strong> The existing experience pushed agents into early branching decisions before they had context. Agents don't know what a customer needs until the conversation unfolds. This validated a significant rethink of the LQQ flow.</li>
@@ -71,24 +86,21 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <span class="cs-section-label">Ideate</span>
     <h2>E2E user flow</h2>
     <p>Before touching a single screen, I mapped the full E2E user flow for the Concierge archetype across virtual and in-store channels. This covered every step of the journey from the moment a lead comes in through expert handoff, including decision points, branching logic, and the key moments where the experience could break down.</p>
+    <p>Getting the quad and cross-functional partners aligned on the full journey before building screens is how we avoid expensive rework later. A shared flow artifact means everyone is reacting to the same thing, and disagreements surface early when they're cheap to fix.</p>
+    <figure class="cs-img">
+      <img src="/images/concierge-04.png" alt="E2E user flow, virtual and in-store archetypes" loading="lazy" />
+      <figcaption>E2E user flow, virtual and in-store archetypes</figcaption>
+    </figure>
     <ul>
       <li>The handoff from Concierge to expert was a broken seam — context wasn't passing cleanly, and the flow made clear we needed to design for that explicitly.</li>
       <li>In-store and virtual archetypes shared most of the same journey but branched at specific moments: store wayfinding, walk-in handling, and in-person appointment logic.</li>
       <li>Several decision points in the flow surfaced gaps between what the system supported and what a Concierge actually needed mid-call, giving us a clear list of problems to solve before screens.</li>
     </ul>
-    <figure class="cs-img">
-      <div class="cs-video-wrap">
-        <iframe src="https://player.vimeo.com/video/1199939256" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <figcaption>E2E user flow — virtual and in-store archetypes</figcaption>
-    </figure>
 
     <h3>E2E capability map</h3>
     <p>With the service layer defined, I built a capability map covering the full Concierge E2E from lead intake through expert handoff, across both archetypes. This gave the team a shared artifact for roadmap planning, flagged design gaps, and made it clear which capabilities were net new vs. enhancements to existing tooling.</p>
     <figure class="cs-img">
-      <div class="cs-video-wrap">
-        <iframe src="https://player.vimeo.com/video/1199939255" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
+      <img src="/images/concierge-05.png" alt="E2E capability map — from lead intake to expert handoff" loading="lazy" />
       <figcaption>E2E capability map — from lead intake to expert handoff</figcaption>
     </figure>
   </div>
@@ -97,46 +109,58 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <span class="cs-section-label">Design</span>
     <h2>The core flow</h2>
     <p>The Concierge experience runs through Salesforce with a custom AppFabric layer (Concierge Connect) built on top. The design challenge wasn't just UI — it was rethinking the logic and information architecture of a CRM that wasn't built for a conversation-first sales role.</p>
-
-    <h3>Key design decisions</h3>
-    <ul>
-      <li><strong>Single-surface notes.</strong> Notes are always visible, always editable, and shared between Concierge and expert. No separate fields, no tab switching, no context lost at handoff. Positioned persistently so Concierges can start writing the moment someone picks up the phone.</li>
-      <li><strong>Conversation-first LQQ flow.</strong> Rather than forcing an early branching decision, the flow opens with discovery — collecting tax situation details through natural conversation before routing to scheduling or warm transfer. This matched how Concierges actually work.</li>
-      <li><strong>Automated expert matching with transparent fallback.</strong> The system qualifies and matches experts automatically based on LQQ responses, with a clear fallback to virtual when no local expert qualifies. When the system overrides or updates a match, it shows its work.</li>
-      <li><strong>Expert-by-location booking.</strong> One of the most-requested features from research — the ability to search for experts by location and book in-person appointments by specific experts, while ensuring qualification and availability. Shipped in V3.5 to 400+ Concierges.</li>
-      <li><strong>Appointment intent capture.</strong> At booking, the system captures customer intent and passes it to the expert ahead of the appointment, reducing no-shows and giving experts real context before the call starts.</li>
-    </ul>
     <figure class="cs-img">
-      <img src="/images/concierge-06.gif" alt="Full E2E Concierge walkthrough from first discovery to booked appointment" loading="lazy" />
-      <figcaption>Full E2E walkthrough: from first discovery to booked appointment</figcaption>
+      <img src="/images/concierge-06.gif" alt="Key flow screens: lead intake, LQQ flow, Connect to Expert, scheduling" loading="lazy" />
+      <figcaption>Key flow screens: lead intake, LQQ flow, Connect to Expert, scheduling</figcaption>
     </figure>
 
-    <h3>Pricing and expert tools</h3>
-    <div class="cs-img-2col">
-      <figure class="cs-img">
-        <img src="/images/concierge-09a.gif" alt="Embedded price estimator" loading="lazy" />
-        <figcaption>Embedded price estimator — inline, no context switch</figcaption>
-      </figure>
-      <figure class="cs-img">
-        <img src="/images/concierge-09b.png" alt="Store locator for in-person expert booking" loading="lazy" />
-        <figcaption>Store locator for in-person expert booking</figcaption>
-      </figure>
-    </div>
+    <h3>Key design decisions</h3>
+
+    <h4>Single-surface notes</h4>
+    <p>Notes are always visible, always editable, and shared between Concierge and expert. No separate fields, no tab switching, no context lost at handoff. Positioned persistently so Concierges can start writing the moment someone picks up the phone.</p>
+
+    <h4>Conversation-first LQQ flow</h4>
+    <p>Rather than forcing an early branching decision, the flow opens with discovery — collecting tax situation details through natural conversation before routing to scheduling or warm transfer. This matched how Concierges actually work.</p>
+
+    <h4>Automated expert matching with transparent fallback</h4>
+    <p>The system qualifies and matches experts automatically based on LQQ responses, with a clear fallback to virtual when no local expert qualifies. When the system overrides or updates a match, it shows its work.</p>
+
+    <h4>Expert-by-location booking</h4>
+    <p>One of the most-requested features from research — the ability to search for experts by location and book in-person appointments by specific experts, while ensuring qualification and availability. Shipped in V3.5 to 400+ Concierges.</p>
+
+    <h4>Appointment intent capture</h4>
+    <p>At booking, the system captures customer intent and passes it to the expert ahead of the appointment, reducing no-shows and giving experts real context before the call starts.</p>
+
+    <h4>In-store vs. virtual</h4>
+    <p>The two archetypes share most of the same core flow but diverge in a few areas. In-store concierges need store wayfinding, walk-in handling, and in-person appointment logic. Virtual concierges run outbound campaigns and need better pipeline visibility and follow-up tooling.</p>
+    <p>Designing for both from the start rather than retrofitting one onto the other was a deliberate call that paid off when v3 scaled to 400+ Concierges across both channels.</p>
+
+    <h3>The Experience</h3>
+    <p>One of the most effective ways to understand what Concierge does is to see it in action. This walkthrough captures the full end-to-end flow, starting from a customer discovering TurboTax as an option, through the conversation with a Concierge, all the way to a booked appointment with an expert.</p>
     <figure class="cs-img">
       <div class="cs-video-wrap">
         <iframe src="https://player.vimeo.com/video/1199939252" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <figcaption>Advanced expert search — filter by qualification, availability, and location</figcaption>
+      <figcaption>Full E2E walkthrough: from first discovery to a booked appointment</figcaption>
     </figure>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Results</span>
+    <h2>Impact</h2>
+    <p>38% ET2S against a 14% target, 59% S2C against a 61% target, 14K customers handled. Volume was the miss, not conversion. Concierge alone nearly matched online lift, and combined with online jumped to +44.8pp over non-AE. Nearly 47% of customers were net-new to TurboTax, higher than any other AE channel.</p>
+    <p>Warm transfer customers started 3× faster than appointment customers (0 days vs. 3 days median), a signal that shaped how we think about routing going forward.</p>
+    <p>V3 and V3.5 expanded the program at scale. Outbound capacity increased <strong>4× per Concierge</strong>, all 3 holdout campaigns showed positive S2C lift, and expert-by-location booking, appointment intent capture, and lead deduplication shipped to <strong>400+ Concierges</strong> by March 2026.</p>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Future vision</span>
     <h2>AI-native Concierge in IEP</h2>
-    <p>The current Concierge experience runs on Salesforce. The longer-term vision — which I explored as a design provocation in Roundtable 3 — is migrating Concierge into IEP as a fully AI-native experience. The case for it: Concierge hands off to experts who live in IEP. Today, that handoff crosses platforms and context gets dropped. A unified platform means shared context, tighter handoffs, and no duplicated tooling.</p>
+    <p>The current Concierge experience runs on Salesforce. The longer-term vision — which I explored as a design provocation in Roundtable 3 — is migrating Concierge into IEP as a fully AI-native experience.</p>
+    <p>The case for it: Concierge hands off to experts who live in IEP. Today, that handoff crosses platforms and context gets dropped. A unified platform means shared context, tighter handoffs, and no duplicated tooling.</p>
     <figure class="cs-img">
       <img src="/images/concierge-08.gif" alt="AI-native Concierge provocation in IEP" loading="lazy" />
-      <figcaption>Design provocation: AI-native Concierge integrated into IEP</figcaption>
+      <figcaption>Concierges reacted with overwhelming enthusiasm for IEP over Salesforce, especially around AI capabilities, ecosystem integration, and cross-team visibility.</figcaption>
     </figure>
 
     <h3>What an AI-native Concierge in IEP could enable</h3>
@@ -148,6 +172,58 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <li>AI-driven lead intent scoring to route high-propensity customers to humans and deflect low-intent traffic to automated flows</li>
     </ul>
     <p>The FY27 roadmap is already moving in this direction with 2-way SMS, live chat, post-call coaching, and in-call AI intent scoring on the near-term horizon. The provocation work from this case study directly informs where that goes next.</p>
+
+    <h3>Other design provocations</h3>
+    <p>Alongside the IEP concept, Roundtable 3 tested three additional ideas with Concierges. All three landed with strong support and are worth exploring as the program scales.</p>
+    <div class="cs-img-3col">
+      <figure class="cs-img">
+        <img src="/images/concierge-09a.gif" alt="Embedded price estimator" loading="lazy" />
+        <p class="cs-provocation-label">Embedded pricing</p>
+        <p>Embedded pricing directly into the flow rather than routing to a separate tool mid-call. Concierges could quote confidently without losing momentum, and reaction was overwhelmingly positive.</p>
+      </figure>
+      <figure class="cs-img">
+        <img src="/images/concierge-09b.png" alt="Store locator for in-person expert booking" loading="lazy" />
+        <p class="cs-provocation-label">Store locator</p>
+        <p>An in-context tool for finding nearby TurboTax locations and understanding in-person options. Most valuable for customers who expressed a preference for face-to-face service.</p>
+      </figure>
+      <figure class="cs-img">
+        <img src="/images/concierge-09c.gif" alt="Advanced expert search" loading="lazy" />
+        <p class="cs-provocation-label">Expert search</p>
+        <p>A flexible search experience letting Concierges find and filter experts by qualification, availability, and location. The group wanted more control over matching for complex tax situations.</p>
+      </figure>
+    </div>
   </div>
 
 </CaseStudy>
+
+<style is:global>
+  .cs-provocation-label {
+    font-size: 0.95rem;
+    font-family: 'Almarai', sans-serif;
+    font-weight: 700;
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+    color: #222;
+  }
+
+  .cs-img-3col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .cs-img-3col .cs-img {
+    margin: 0;
+    text-align: left;
+  }
+
+  .cs-img-3col .cs-img h4 {
+    margin-top: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .cs-img-3col { grid-template-columns: 1fr; }
+  }
+</style>

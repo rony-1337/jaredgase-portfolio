@@ -27,7 +27,7 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <li>Product Support experts who help customers with product, account, and technical issues.</li>
       <li>Domain experts (CPAs and bookkeepers) who provide tax and accounting expertise.</li>
     </ul>
-    <figure class="cs-img">
+    <figure class="cs-img cs-img-half">
       <img src="/images/iep-01.png" alt="IEP expert archetypes" loading="lazy" />
       <figcaption>Expert archetypes across IEP</figcaption>
     </figure>
@@ -105,27 +105,35 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <img src="/images/iep-05.gif" alt="Intuit Assist inline guidance" loading="lazy" />
       <figcaption>Intuit Assist surfaced inline — guidance at the moment it's needed</figcaption>
     </figure>
-    <figure class="cs-img">
-      <div class="cs-video-wrap">
-        <iframe src="https://player.vimeo.com/video/1199939174" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <figcaption>Dynamic Workflow Cards in the Command Center — the workflow builds itself as the call unfolds</figcaption>
-    </figure>
+  </div>
+
+  <div class="cs-section">
+    <h2>Why this was the bet</h2>
+    <p>Putting everything into the workflow was an argument about what the platform could unlock: faster calls, far less swivel-chair, a foundation for agentic actions the system can take on the customer's behalf, and a single model that scales cleanly across both Product Support and Domain experts. It was a provocation meant to stretch the readiness, not a feature ready to ship, and it did move the conversation about where the platform should go.</p>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Test</span>
     <h2>Research validation</h2>
-    <p>Design direction was validated through a dedicated research program running in parallel, with 15 rounds across five months covering both target-state concepts and third-peak readiness. Methods ranged from Follow-Me-Homes and in-depth interviews to Wizard-of-Oz role plays and concept testing across Product Support and Domain experts.</p>
+    <p>Design direction was validated through a dedicated research program running in parallel, with 15 rounds across five months covering both target-state concepts and third-peak readiness. Methods ranged from Follow-Me-Homes and in-depth interviews to Wizard-of-Oz role plays and concept testing across Product Support and Domain experts, including leads and managers.</p>
     <p>A few signals shaped the iteration directly:</p>
     <ul>
       <li><strong>Co-pilot, not pilot.</strong> Experts welcome AI suggestions when they trust the accuracy, and take control earlier when they don't. Expert agency had to be designed in, not assumed.</li>
       <li><strong>Guidance has a Goldilocks problem.</strong> Too much, too frequent, or off-target guidance gets ignored. One expert called persistent low-value guidance "the mother-in-law you want to get rid of."</li>
       <li><strong>One size fits none.</strong> What works for one expert role or experience level doesn't work for another, which is why control over the canvas mattered so much.</li>
     </ul>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Implementation</span>
+    <h2>Handing off the direction</h2>
+    <p>I documented the interaction model and the shifts and presented them to cross-functional partners to align on scope and direction ahead of the build. The intro deck framed the demo goal, the scenarios, and what we needed partners to weigh in on, then walked through the design shifts before dropping into the live flow.</p>
+    <p>As the work moved toward development, I handed off the direction as I transitioned to another team. The platform carried forward into the third-peak build and continued iterating into 2025 under new owners.</p>
     <figure class="cs-img">
-      <img src="/images/iep-07.png" alt="Final design direction" loading="lazy" />
-      <figcaption>Final design direction — validated through 15 research rounds</figcaption>
+      <div class="cs-video-wrap">
+        <iframe src="https://player.vimeo.com/video/1199939174" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <figcaption>Review recommendations — walking through the design shifts before handing off to build</figcaption>
     </figure>
   </div>
 
@@ -135,11 +143,18 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <p>My specific designs didn't ship verbatim. They pushed the platform from its third-peak state toward the next iteration and fed the direction that later versions carried forward. AI Native IEP went on to ship as a program — a third-peak pilot ran with roughly 400 to 450 Product Support and Domain experts, and the platform later became the new baseline across these experts, retiring the legacy UI.</p>
     <p>That program saw strong early adoption signals across both expert archetypes that moved onto it:</p>
     <ul>
-      <li>361 Index-to-Control in AI adoption among Domain experts in Full Service tax during the third-peak pilot.</li>
-      <li>140 Index-to-Control among Domain experts in TurboTax Live Assisted.</li>
-      <li>109 Index-to-Control among Product Support experts.</li>
+      <li><strong>361 Index-to-Control</strong> in AI adoption among Domain experts in Full Service tax during the third-peak pilot.</li>
+      <li><strong>140 Index-to-Control</strong> among Domain experts in TurboTax Live Assisted.</li>
+      <li><strong>109 Index-to-Control</strong> among Product Support experts.</li>
     </ul>
-    <p><em>Index-to-Control compares adoption against a control group; 100 is parity, so 361 means roughly 3.6× the control. These are program outcomes from a large cross-functional and research-led effort, not metrics I owned.</em></p>
+    <p><em>Index-to-Control compares adoption against a control group; 100 is parity, so 361 means roughly 3.6× the control. These are program outcomes from a large cross-functional and research-led effort, not metrics I owned. My contribution was the design leadership on the shell and the interaction shifts that helped shape the direction this work built on.</em></p>
+  </div>
+
+  <div class="cs-section">
+    <span class="cs-section-label">Future</span>
+    <h2>Future</h2>
+    <p>AI Native IEP is a long arc, not a single release. The provocation I pushed — putting everything into the workflow as dynamic, conversation-driven cards — raised the questions worth designing against next: how to keep the cards trustworthy and well-paced so the flow doesn't become the same overload in a new form, how far to take the CTAs toward true agentic actions the system performs on the customer's behalf, and how to keep the model role-aware so it adapts across both Product Support and Domain experts.</p>
+    <p>The throughline stays the same. The system should bring the right action to the expert at the right moment, but the expert always controls the canvas and makes the final call.</p>
   </div>
 
 </CaseStudy>
