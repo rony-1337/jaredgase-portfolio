@@ -72,7 +72,7 @@ import Layout from '../layouts/Layout.astro';
           <h2>Design Leadership.</h2>
           <p>Strategic design advisor and craft lead, mentor and team builder, driving cross-functional alignment, executive influence, and org-wide design rituals and operating models.</p>
           <p class="skill-label">Training</p>
-          <ul>
+          <ul class="training-list">
             <li>Designing AI Experiences</li>
             <li>Principles of Management</li>
             <li>Storytelling with Impact</li>
@@ -110,7 +110,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="role">
           <h3>Staff Product Designer</h3>
-          <p class="role-meta">Intuit, San Diego, CA | August 2023 – Present</p>
+          <p class="role-meta"><strong>Intuit</strong>, San Diego, CA | August 2023 – Present</p>
           <ul>
             <li>Lead designer for Concierge, influencing 53% of conversions and supporting 5,500 daily calls, contributing to $250M in revenue.</li>
             <li>Serve as strategic design advisor for AI initiatives across Sales and Customer Success.</li>
@@ -122,7 +122,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="role">
           <h3>Senior Product Designer</h3>
-          <p class="role-meta">Intuit, San Diego, CA | August 2021 – August 2023</p>
+          <p class="role-meta"><strong>Intuit</strong>, San Diego, CA | August 2021 – August 2023</p>
           <ul>
             <li>Design leader across Virtual Expert Platform initiatives, building platform-level AI-assisted workflows.</li>
             <li>Design leader for Accelerate the Platform (Credit Karma) across CUI, search, messaging, community, and live expert access.</li>
@@ -131,7 +131,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="role">
           <h3>Interaction Designer III</h3>
-          <p class="role-meta">Intuit, San Diego, CA | August 2020 – August 2021</p>
+          <p class="role-meta"><strong>Intuit</strong>, San Diego, CA | August 2020 – August 2021</p>
           <ul>
             <li>Designer for the Virtual Expert Platform across TurboTax, QuickBooks, Mint, and Intuit Accountants.</li>
             <li>Owned E2E design strategy for OHH and Community. Converted to full-time Senior Product Designer in 2021.</li>
@@ -140,7 +140,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="role">
           <h3>Lead UX Designer</h3>
-          <p class="role-meta">National University System, San Diego, CA | March 2016 – July 2020</p>
+          <p class="role-meta"><strong>National University System</strong>, San Diego, CA | March 2016 – July 2020</p>
           <ul>
             <li>Led UX design across four universities and five affiliates, driving top-of-funnel conversion.</li>
             <li>Redesigned CityU's website — 212% spike in RFI submissions within the first week of launch.</li>
@@ -150,7 +150,7 @@ import Layout from '../layouts/Layout.astro';
 
         <div class="role">
           <h3>Interactive Designer II</h3>
-          <p class="role-meta">L7 Creative, Carlsbad, CA | May 2015 – February 2016</p>
+          <p class="role-meta"><strong>L7 Creative</strong>, Carlsbad, CA | May 2015 – February 2016</p>
           <ul>
             <li>Designed E2E experiences across e-commerce and B2B platforms — 73% more leads and 188% more sessions for a solar client.</li>
             <li>Recognized by Graphic Design USA with American Web Design and Health + Wellness Design awards.</li>
@@ -358,6 +358,11 @@ import Layout from '../layouts/Layout.astro';
     list-style: none;
     font-size: 0.88rem;
     line-height: 1.8;
+  }
+
+  .training-list {
+    list-style: disc;
+    padding-left: 1.25rem;
   }
 
   .edu-list li { margin-bottom: 0.5rem; }
