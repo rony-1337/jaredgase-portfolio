@@ -121,6 +121,13 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <img src="/images/iep-05.gif" alt="Intuit Assist inline guidance" loading="lazy" />
       <figcaption>Intuit Assist surfaced inline — guidance at the moment it's needed</figcaption>
     </figure>
+
+    <h3>Scenario 2: when guidance is weak</h3>
+    <p>A customer calls but gives the bot almost no context, so there is nothing solid for the AI to work with. Instead of inventing an answer, the workflow surfaces an "Answer the question" card flagged in red: not enough context, gathering more, here is the conversation so far. The expert stays in control and keeps talking to the customer. When the customer then states the real problem, that they cannot find their 2025 estimated tax vouchers, a new guidance card surfaces with the actual answer and the workflow step updates from "not enough context" to the resolved question.</p>
+    <p>Every action from there lives in the same flow as a card: initiating the screen share, ending it, closing the engagement, approving the AI call notes. The expert never leaves to open a separate tool, and the left-rail workflow builds itself as the call unfolds, so the table of contents becomes a record of what actually happened. This is the "design for imperfection" principle in practice: be honest when the AI does not know, never block the expert, and let a better card replace a weak one as the conversation gives the system more to work with.</p>
+    <figure class="cs-img">
+      <img src="/images/06_Differences.png" alt="Scenario 2: when guidance is weak" loading="lazy" />
+    </figure>
   </div>
 
   <div class="cs-section">
