@@ -73,25 +73,29 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
     <div class="cs-img-2col cs-baseline-cols">
       <div>
         <figure class="cs-img">
-          <img src="/images/iep-03.png" alt="Intuit Assist baseline" loading="lazy" />
+          <img src="/images/iep-03.png" alt="Intuit Assist baseline" loading="lazy" class="baseline-icon" />
         </figure>
         <h4>Intuit Assist became a persistent Command Center.</h4>
         <p>It moved into the engagement and folded the scattered tabs into a single hub — the one starting point for all work in IEP and the point of interaction for the agentic co-pilot.</p>
       </div>
       <div>
         <figure class="cs-img">
-          <img src="/images/iep-04.png" alt="Command Center baseline" loading="lazy" />
+          <img src="/images/iep-04.png" alt="Command Center baseline" loading="lazy" class="baseline-icon" />
         </figure>
         <h4>Utilities moved into pop-out windows.</h4>
         <p>Pulling them out of the right rail gave experts control of their canvas, including second-monitor use for tools like Telephony.</p>
       </div>
     </div>
+    <figure class="cs-img">
+      <img src="/images/iep-04-command-center.gif" alt="Example of baseline shifts: Command Center" loading="lazy" />
+      <figcaption>Example of baseline shifts: Command Center</figcaption>
+    </figure>
 
     <h3>The plus: Dynamic Workflow Cards</h3>
     <p>On top of that baseline, my contribution was a provocation for how the workflow itself should behave. The legacy model assumed the expert did the navigating: open a tool, find the utility, come back, repeat. I flipped it. Instead of going out to a tool, the tool's action comes to the expert as a card, in the flow, triggered by what the customer is saying in real time.</p>
     <p>Two capabilities make it new:</p>
     <ul>
-      <li>A <strong>dynamic Workflow / Table of Contents</strong> that builds itself as the call happens, guiding the expert through the right steps for that interaction instead of sitting as a fixed menu.</li>
+      <li><strong>A dynamic Workflow / Table of Contents</strong> that builds itself as the call happens, guiding the expert through the right steps for that interaction instead of sitting as a fixed menu.</li>
       <li><strong>On-Contact Guidance</strong> card content surfaced from the live conversation, so the guidance and actions in each card match the moment at hand.</li>
     </ul>
     <p>The cards follow a few rules: <strong>Conversation-driven</strong> — cards surface from the customer's real-time utterances, not from a fixed menu. <strong>Action, not just information</strong> — each card carries a CTA the expert can take on the customer's behalf. <strong>One at a time</strong> — the expert handles one card, then moves to the next. <strong>Never static</strong> — if the conversation changes direction, the cards reshape to match.</p>
@@ -164,8 +168,12 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
 
 <style is:global>
   .cs-baseline-cols .cs-img {
-    text-align: center;
+    text-align: left;
     margin-bottom: 1rem;
+  }
+
+  .cs-baseline-cols .baseline-icon {
+    max-width: 40% !important;
   }
 
   .cs-baseline-cols h4 {
