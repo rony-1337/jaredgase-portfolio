@@ -48,7 +48,7 @@ const { title, type, timeline, sector, role, platform, goal, myImpact, outcomes,
         <div class="cs-overview-col">
           <h2 class="cs-overview-heading">What I delivered</h2>
           <ul>
-            {outcomes.map(o => <li>{o}</li>)}
+            {outcomes.map(o => <li set:html={o}></li>)}
           </ul>
         </div>
       </div>
