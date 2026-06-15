@@ -15,29 +15,35 @@ const projects = [
 
   <!-- Hero -->
   <section class="hero">
-    <div class="hero-text">
+    <div class="hero-headline">
       <p class="greeting">👋 Hi, I'm Jared!</p>
       <h1>I design at the system level.</h1>
-      <p class="hero-body">
-        I'm a Staff Product Designer at Intuit, leading end-to-end design across sales
-        technology and serving as the strategic AI design advisor across sales and customer
-        success. My work focuses on connecting workflows, data, and customer journeys into
-        AI-native, platform-level systems.
-      </p>
-      <p class="hero-body">
-        Before Intuit, I led experience design across four universities and five affiliates
-        at National University System, and earlier I cut my teeth at agency work on
-        e-commerce and B2B platforms. The throughline across every chapter: I'm at my best
-        when I can shape direction, not just deliver pixels.
-      </p>
-      <a href="/about" class="btn-primary">Learn more</a>
     </div>
-    <div class="hero-image">
-      <img
-        src="/images/headshot.gif"
-        alt="Jared Gase"
-      />
-      <p class="caption">No, I look like Bob Ross, and no, it's not a wig.</p>
+    <div class="hero-columns">
+      <div class="hero-text">
+        <p class="hero-body">
+          I'm a Staff Product Designer at Intuit, leading end-to-end design across sales
+          technology and serving as the strategic AI design advisor across sales and customer
+          success. My work focuses on connecting workflows, data, and customer journeys into
+          AI-native, platform-level systems.
+        </p>
+        <p class="hero-body">
+          Before Intuit, I led experience design across four universities and five affiliates
+          at National University System, and earlier I cut my teeth at agency work on
+          e-commerce and B2B platforms. The throughline across every chapter: I'm at my best
+          when I can shape direction, not just deliver pixels.
+        </p>
+        <div class="hero-cta"><a href="/about" class="btn-primary">Learn more</a></div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-image">
+          <img
+            src="/images/headshot.gif"
+            alt="Jared Gase"
+          />
+        </div>
+        <p class="caption">No, I look like Bob Ross, and no, it's not a wig.</p>
+      </div>
     </div>
   </section>
 
@@ -78,10 +84,17 @@ const projects = [
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 5vmax var(--gutter);
+  }
+
+  .hero-headline {
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4vw;
-    align-items: start;
+    align-items: center;
   }
 
   .greeting {
@@ -90,10 +103,11 @@ const projects = [
     margin-bottom: 0.5rem;
   }
 
-  .hero-text h1 {
-    font-size: clamp(1.8rem, 3.5vw, 3rem);
+  .hero-headline h1 {
+    font-size: clamp(1.6rem, 3.5vw, 3rem);
     color: var(--accent-mid);
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
+    white-space: nowrap;
   }
 
   .hero-body {
@@ -102,23 +116,18 @@ const projects = [
     margin-bottom: 0.75rem;
   }
 
-  .btn-primary {
-    display: inline-block;
-    margin-top: 1rem;
-    background: var(--accent);
-    color: var(--white);
-    padding: 0.65rem 1.5rem;
-    font-family: 'Almarai', sans-serif;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    transition: opacity 0.15s;
-  }
+  .hero-cta { margin-top: 1rem; }
 
-  .btn-primary:hover { opacity: 0.85; }
+  .hero-image {
+    overflow: hidden;
+    border-radius: 16px;
+  }
 
   .hero-image img {
     width: 100%;
-    border-radius: 4px;
+    border-radius: 0;
+    display: block;
+    margin-bottom: -100px;
   }
 
   .caption {
@@ -159,6 +168,7 @@ const projects = [
   .project-item { display: block; }
 
   .project-image {
+    border-radius: 16px;
     position: relative;
     aspect-ratio: 4/3;
     overflow: hidden;
@@ -169,11 +179,6 @@ const projects = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.35s ease;
-  }
-
-  .project-item:hover .project-image img {
-    transform: scale(1.04);
   }
 
   .project-overlay {
@@ -220,25 +225,10 @@ const projects = [
     opacity: 0.9;
   }
 
-  .btn-outline {
-    display: inline-block;
-    border: 1px solid var(--white);
-    color: var(--white);
-    padding: 0.65rem 1.5rem;
-    font-family: 'Almarai', sans-serif;
-    font-size: 0.9rem;
-    border-radius: 4px;
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .btn-outline:hover {
-    background: var(--white);
-    color: var(--accent);
-  }
 
   /* ─── Responsive ────────────────────────── */
   @media (max-width: 768px) {
-    .hero { grid-template-columns: 1fr; }
+    .hero-columns { grid-template-columns: 1fr; }
     .project-grid { grid-template-columns: 1fr; }
   }
 </style>

@@ -1,4 +1,6 @@
 ---
+import { ClientRouter } from 'astro:transitions';
+
 interface Props {
   title: string;
   description?: string;
@@ -17,6 +19,7 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>Jared Gase{title !== 'Home' ? ` — ${title}` : ''}</title>
+    <ClientRouter />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Almarai:wght@400;700&display=swap" rel="stylesheet" />
@@ -67,16 +70,106 @@ const currentPath = Astro.url.pathname;
           <div class="footer-contact">
             <p>(619) 997 - 2058</p>
             <p><a href="mailto:jdgase@gmail.com">jdgase@gmail.com</a></p>
-            <p>© 2025 Jared Gase</p>
+            <p>© {new Date().getFullYear()} Jared Gase</p>
           </div>
         </div>
       </div>
     </footer>
 
     <script>
-      const toggle = document.getElementById('menuToggle');
-      const nav = document.getElementById('mobileNav');
-      toggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+      function initPage() {
+        // ── Mobile nav toggle ──
+        const toggle = document.getElementById('menuToggle');
+        const nav = document.getElementById('mobileNav');
+        toggle?.addEventListener('click', () => nav?.classList.toggle('open'));
+
+        // ── Apply fade-up to key elements then observe ──
+        const fadeTargets = [
+          '.cs-section',
+          '.cs-img',
+          '.project-item',
+          '.project-row',
+          '.impact-card',
+          '.cs-section-label',
+          '.hero-text',
+          '.hero-image',
+          '.work-header',
+          '.cta-inner',
+          '.resume-block',
+        ];
+        fadeTargets.forEach(sel => {
+          document.querySelectorAll(sel).forEach(el => el.classList.add('fade-up'));
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ── Typewriter loop on homepage h1 ──
+        const h1 = document.querySelector('.hero-headline h1');
+        if (h1 && !h1.dataset.typed) {
+          h1.dataset.typed = '1';
+          const base = 'I design ';
+          const phrases = [
+            'at the system level.',
+            'AI-native experiences.',
+            'platforms, not products.',
+          ];
+
+          h1.textContent = '';
+          h1.style.opacity = '1';
+
+          const textNode = document.createTextNode('');
+          const cursor = document.createElement('span');
+          cursor.className = 'type-cursor';
+          cursor.textContent = '|';
+          h1.appendChild(textNode);
+          h1.appendChild(cursor);
+
+          let current = '';
+          let phraseIndex = 0;
+
+          function type(target, cb) {
+            if (current.length < target.length) {
+              current = target.slice(0, current.length + 1);
+              textNode.textContent = current;
+              setTimeout(() => type(target, cb), 70);
+            } else { cb(); }
+          }
+
+          function erase(target, cb) {
+            if (current.length > target.length) {
+              current = current.slice(0, -1);
+              textNode.textContent = current;
+              setTimeout(() => erase(target, cb), 40);
+            } else { cb(); }
+          }
+
+          function loop() {
+            const full = base + phrases[phraseIndex];
+            type(full, () => {
+              setTimeout(() => {
+                erase(base, () => {
+                  phraseIndex = (phraseIndex + 1) % phrases.length;
+                  setTimeout(loop, 300);
+                });
+              }, 2500);
+            });
+          }
+
+          setTimeout(loop, 400);
+        }
+      }
+
+      // Run on first load and after every ViewTransitions navigation
+      document.addEventListener('astro:page-load', initPage);
     </script>
   </body>
 </html>
@@ -106,7 +199,111 @@ const currentPath = Astro.url.pathname;
   body { min-height: 100vh; display: flex; flex-direction: column; }
   main { flex: 1; }
   a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
+  img { display: block; max-width: 100%; border-radius: 16px; }
+  .nav-logo, .footer-logo img, .impact-icon img, svg { border-radius: 0 !important; }
+
+  /* ── Scroll fade-up ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fade-up:nth-child(2) { transition-delay: 0.1s; }
+  .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  .fade-up:nth-child(4) { transition-delay: 0.3s; }
+  .fade-up:nth-child(5) { transition-delay: 0.4s; }
+  .fade-up:nth-child(6) { transition-delay: 0.5s; }
+
+  /* ── Back link arrow nudge ── */
+  .cs-back { transition: transform 0.2s ease, opacity 0.2s ease; }
+  .cs-back:hover { transform: translateX(-4px); opacity: 0.7; }
+
+  /* ── Button left-to-right color sweep ── */
+  /* Filled buttons — homepage CTA + about resume */
+  .btn-primary,
+  .btn-view-resume {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--white) !important;
+    padding: 0.65rem 1.5rem;
+    font-family: 'Almarai', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background-color: var(--accent);
+    background-image: linear-gradient(to right, rgba(0,0,0,0.28) 50%, rgba(0,0,0,0) 50%);
+    background-size: 200% 100%;
+    background-position: right center;
+    transition: background-position 0.45s ease;
+  }
+  .btn-primary:hover,
+  .btn-view-resume:hover {
+    background-position: left center;
+    color: var(--white) !important;
+  }
+
+  /* Outlined buttons — work page + CTA section */
+  .learn-more {
+    display: inline-block;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.65rem 1.5rem;
+    font-family: 'Almarai', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, var(--accent) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right center;
+    transition: background-position 0.45s ease, color 0.45s ease;
+  }
+  .learn-more:hover { background-position: left center; color: var(--white) !important; }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--white);
+    color: var(--white);
+    padding: 0.65rem 1.5rem;
+    font-family: 'Almarai', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background-image: linear-gradient(to right, var(--white) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right center;
+    transition: background-position 0.45s ease, color 0.45s ease;
+  }
+  .btn-outline:hover { background-position: left center; color: var(--accent) !important; }
+
+  /* ── Typewriter cursor ── */
+  .type-cursor {
+    display: inline-block;
+    color: var(--black);
+    font-weight: 400;
+    margin-left: 1px;
+    animation: blink 0.75s step-end infinite;
+  }
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* ── Image reveal on scroll ── */
+  .cs-img {
+    overflow: hidden;
+  }
+  .cs-img img, .cs-img iframe {
+    transition: transform 0.7s ease, opacity 0.7s ease;
+  }
+  .fade-up .cs-img img {
+    transform: scale(1.04);
+    opacity: 0.85;
+  }
+  .fade-up.visible .cs-img img {
+    transform: scale(1);
+    opacity: 1;
+  }
 
   h1, h2, h3, h4 {
     font-family: 'Libre Baskerville', Georgia, serif;

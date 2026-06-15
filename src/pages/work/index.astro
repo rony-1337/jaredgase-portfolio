@@ -219,6 +219,7 @@ const projects = [
   }
 
   .project-thumb {
+    border-radius: 16px;
     display: block;
     flex-shrink: 0;
     overflow: hidden;
@@ -228,10 +229,8 @@ const projects = [
     width: 100%;
     aspect-ratio: 4/3;
     object-fit: cover;
-    transition: transform 0.3s ease;
   }
 
-  .project-thumb:hover img { transform: scale(1.03); }
 
   .project-info h3 {
     font-size: clamp(1.1rem, 1.8vw, 1.4rem);
@@ -249,20 +248,6 @@ const projects = [
     
   }
 
-  .learn-more {
-    display: inline-block;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 0.5rem 1.25rem;
-    font-size: 0.85rem;
-    border-radius: 4px;
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .learn-more:hover {
-    background: var(--accent);
-    color: var(--white);
-  }
 
   /* ─── Responsive ─────────────────────── */
   @media (max-width: 768px) {

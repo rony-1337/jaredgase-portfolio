@@ -220,10 +220,10 @@ import Layout from '../layouts/Layout.astro';
 
   .sizzle-video {
     position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
+    aspect-ratio: 16 / 9;
+    width: 100%;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 16px;
     margin-top: 2.5rem;
   }
 
@@ -234,6 +234,7 @@ import Layout from '../layouts/Layout.astro';
     width: 100%;
     height: 100%;
     border: 0;
+    border-radius: 16px;
   }
 
   /* ─── Outside of work ───────────────────── */
@@ -268,7 +269,7 @@ import Layout from '../layouts/Layout.astro';
     height: 570px;
     object-fit: cover;
     object-position: top;
-    border-radius: 4px;
+    border-radius: 16px;
   }
 
   figcaption {
@@ -371,18 +372,6 @@ import Layout from '../layouts/Layout.astro';
 
   .edu-list li { margin-bottom: 0.5rem; }
 
-  .btn-view-resume {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--white);
-    padding: 0.6rem 1.5rem;
-    font-size: 0.88rem;
-    border-radius: 4px;
-    font-family: 'Almarai', sans-serif;
-    transition: opacity 0.15s;
-  }
-
-  .btn-view-resume:hover { opacity: 0.85; }
 
   /* Right */
   .resume-right h2 {

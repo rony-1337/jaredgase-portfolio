@@ -33,16 +33,16 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <p><em>Because…</em> the content is specific to the product and edition I own, which I do not know</p>
       <p><em>Which makes me feel...</em> frustrated and unsure, leading to a poor experience and a lack of confidence in the QuickBooks ecosystem especially around self-help resources.</p>
     </blockquote>
-    <figure class="cs-img">
-      <img src="/images/audit-01.png" alt="Homepage of the QuickBooks Support Website" loading="lazy" />
-      <figcaption>A screenshot of the homepage of the QuickBooks Support Website</figcaption>
-    </figure>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Define</span>
     <h2>The issue with the Product Selector</h2>
     <p>The issue with the Product Selector on the QuickBooks out-of-product help site goes beyond the selector. It allows users to choose a product and browse related topics and subtopics, significantly influencing the entire customer experience.</p>
+    <figure class="cs-img">
+      <img src="/images/audit-01.png" alt="Homepage of the QuickBooks Support Website" loading="lazy" />
+      <figcaption>A screenshot of the homepage of the QuickBooks Support Website</figcaption>
+    </figure>
 
     <h3>Observations</h3>
     <ul>
@@ -52,137 +52,168 @@ import CaseStudy from '../../layouts/CaseStudy.astro';
       <li>The current information architecture prioritizes topics over products.</li>
     </ul>
 
-    <h3>Baseline UX issues</h3>
-    <ul>
-      <li><strong>Buttons as Product Selectors.</strong> The product selector uses a button-like treatment, but when selected, users are not taken to a new page — instead, the topic cards switch. This contradicts the widely known pattern that buttons should lead to new pages.</li>
-      <li><strong>Ineffective Carousel.</strong> Only 0.01% of customers use the carousel arrows to scroll, hiding eight additional products.</li>
-      <li><strong>Confusing Card Switching.</strong> Topic cards switch in and out based on the selected product, which can confuse users about why the elements on the page are changing. In some cases, cards do not switch at all.</li>
-      <li><strong>Clickable Topic Names.</strong> Topic names are clickable but do not visually indicate this. Only 1.8% of customers click on them.</li>
-      <li><strong>Two-Step Process.</strong> Users are forced into a two-step process: select a product, then pick a topic/subtopic.</li>
-    </ul>
-
-    <h3>Quantitative research</h3>
-    <p>In our analysis of the QuickBooks product support homepage, we uncovered several critical issues:</p>
-    <ul>
-      <li><strong>27% Abandon</strong> — Over a quarter of customers immediately leave without clicking anything else.</li>
-      <li><strong>18% Navigate Elsewhere</strong> — A significant portion use navigation items, footer, or other links.</li>
-      <li><strong>17% Refresh</strong> — Over 17% click the 'QuickBooks Support' link, which refreshes the page.</li>
-      <li><strong>14% Carousel Interaction</strong> — While 14% engage with the product carousel, only 2–3% move on to click a topic or subtopic.</li>
-      <li><strong>11% Search</strong> — About 11% use the search function.</li>
-      <li><strong>8% Contact Us</strong> — Around 8% scroll to the bottom and click 'Contact Us,' indicating frustration with self-service.</li>
-    </ul>
-    <div class="cs-img-2col">
-      <figure class="cs-img">
-        <img src="/images/audit-05a.png" alt="Quantitative data analysis" loading="lazy" />
-        <figcaption>Homepage click breakdown</figcaption>
-      </figure>
-      <figure class="cs-img">
-        <img src="/images/audit-05b.png" alt="Quantitative data analysis" loading="lazy" />
-        <figcaption>Product selector engagement analytics</figcaption>
-      </figure>
-    </div>
+    <h3>Using Foreign UI Patterns</h3>
+    <p>The list of topics in the navigation changes based on the product selected in the product selector, and the only way to access new topics is by selecting a different product and then checking the navigation to see the updated options.</p>
     <figure class="cs-img">
-      <img src="/images/audit-05c.png" alt="Analytics showing users who click on a product expecting something to load" loading="lazy" />
-      <figcaption>Analytics: users who click on a product expecting something to load</figcaption>
+      <img src="/images/audit-02.gif" alt="Topics in navigation changing based on selected product" loading="lazy" />
+      <figcaption>The list of topics in the navigation changes based on the selected product.</figcaption>
     </figure>
 
-    <h3>Deeper dive: one product is preselected</h3>
-    <p>QuickBooks Online is selected by default, leading to a 97% selection rate — meaning only 3% of customers actively choose other QuickBooks products. This default setting often directs customers to QuickBooks Online topic pages, even if they don't use it. Furthermore, out of the 3% who click on a topic or use the product selector, only 2% switch to a different product in the dropdown menu.</p>
+    <h3>Baseline UX issues</h3>
+    <ol>
+      <li>
+        <strong>Buttons as Product Selectors</strong><br />
+        The product selector uses a button-like treatment, but when selected, users are not taken to a new page; instead, the topic cards switch. This contradicts the widely known pattern that buttons should lead to new pages.
+      </li>
+      <li>
+        <strong>Ineffective Carousel</strong><br />
+        Only 0.01% of customers use the carousel arrows to scroll, hiding eight additional products. This low engagement rate makes the carousel an ineffective UI element.
+      </li>
+      <li>
+        <strong>Confusing Card Switching</strong><br />
+        Topic cards switch in and out based on the selected product, which can confuse users about why the elements on the page are changing. In some cases, cards do not switch at all, adding to the confusion.
+      </li>
+      <li>
+        <strong>Clickable Topic Names</strong><br />
+        Topic names are clickable but do not visually indicate this, appearing more like headlines. Only 1.8% of customers click on the topic names, suggesting a lack of clarity in their function.
+      </li>
+      <li>
+        <strong>More Link Usage</strong><br />
+        The "More" link is clicked by only 2.1% of customers. Some topics have only one extra subtopic, making the link unnecessary as it takes up the same amount of space.
+      </li>
+      <li>
+        <strong>Accordion Pattern Misuse</strong><br />
+        The "More Topics" button is actually an accordion pattern, which expands to show more topics. Users expect it to lead to a new page, but 90% of clicks on topic cards come from the top three cards, indicating that the rest are underutilized.
+      </li>
+      <li>
+        <strong>Two-Step Process</strong><br />
+        Users are forced into a two-step process: select a product, then pick a topic/subtopic. However, selecting a product is the most critical step, as it provides a customized experience across the product support microsite.
+      </li>
+    </ol>
+    <figure class="cs-img">
+      <img src="/images/audit-03.png" alt="Product selector UI issues callout" loading="lazy" />
+      <figcaption>A callout to all the UI issues faced in the product selector</figcaption>
+    </figure>
+
+    <h3>User flows</h3>
+    <p>Currently, there is no way to select other topics except through the product selector. For example, a customer arriving on the support site to learn more about timesheet management might click on Topics in the navigation but won't find anything related because QuickBooks Online, the default selected product, does not offer this topic.</p>
+    <figure class="cs-img">
+      <img src="/images/audit-04a.png" alt="Customer journey to reach a help article through nav bar" loading="lazy" />
+      <figcaption>Customer journey to reach a help article through nav bar</figcaption>
+    </figure>
+    <p>When on a topic page, only products that pertain to that topic are available. For instance, a customer arriving on the support site and clicking on the Expense and Vendors topic card might realize that QuickBooks Online was selected by default. When they try to change the product by clicking on the drop-down menu, they do not see their specific product listed.</p>
+    <figure class="cs-img">
+      <img src="/images/audit-04b.png" alt="Customer journey to reach a help article through product selector" loading="lazy" />
+      <figcaption>Customer journey to reach a help article through product selector</figcaption>
+    </figure>
   </div>
 
   <div class="cs-section">
-    <span class="cs-section-label">Ideate</span>
-    <h2>Current flows</h2>
-    <p>I mapped the two primary paths users took to find support content to understand where each flow broke down and where users were most likely to abandon.</p>
-    <div class="cs-img-2col">
-      <figure class="cs-img">
-        <img src="/images/audit-04a.png" alt="Customer journey to reach a help article through nav bar" loading="lazy" />
-        <figcaption>Click path: help article via navigation</figcaption>
-      </figure>
-      <figure class="cs-img">
-        <img src="/images/audit-04b.png" alt="Customer journey to reach a help article through product selector" loading="lazy" />
-        <figcaption>Click path: help article via product selector</figcaption>
-      </figure>
-    </div>
+    <span class="cs-section-label">Deep Dive</span>
+    <h2>How did we get here</h2>
+    <p>In developing the product support site, the project involved an external agency as well as several in-house designers and project managers. This collaboration led to a lack of clear ownership over the strategy and UI/UX design. With so many contributors, the site ended up reflecting a variety of opinions and ideas, which couldn't be thoroughly iterated or tested due to the tight timeline. The site had to go live by a specific date, leaving little room for refinement and optimization.</p>
+    <p>The current user experience was tested using Usertesting.com, but the results were inconclusive and the test was not properly structured to ensure success. The test only included one variant, failing to compare multiple layouts to determine which performed best.</p>
 
-    <h3>Qualitative research</h3>
-    <p>Customer research revealed that most users start with the marketing site, while others use external resources like Google, YouTube, blogs, and tutorials. The product selector was often overlooked due to its lack of visibility and clarity. Customers also struggled to find specific products using the topic-first approach.</p>
-    <ul>
-      <li>"It's not obvious, when I select a card, if I will be taken to an article or a page." – Kimberly C.</li>
-      <li>"It doesn't make a ton of sense to be honest. Like, I mean, it just, it doesn't call to me to like click ... like as I like look over like topics." – Ximena A.</li>
-      <li>"I don't know if finding a way to break it out a little bit more in design to draw attention. Cause then maybe I will click carousel, but I didn't notice it." – Matt H.</li>
-    </ul>
-  </div>
+    <h2>Quantitative research</h2>
+    <p>In our recent analysis of the QuickBooks product support homepage, we uncovered several critical issues impacting user engagement and satisfaction:</p>
+    <figure class="cs-img">
+      <img src="/images/audit-05a.png" alt="Homepage click breakdown" loading="lazy" />
+      <figcaption>A click breakdown of the homepage of the QuickBooks product support website</figcaption>
+    </figure>
+    <ol>
+      <li><strong>27% Abandon</strong><br />Over a quarter of customers immediately leave without clicking anything else, suggesting confusion or overwhelm.</li>
+      <li><strong>18% Navigate Elsewhere</strong><br />A significant portion use navigation items, footer, or other links, indicating the primary content is not guiding them effectively.</li>
+      <li><strong>17% Refresh</strong><br />Over 17% click on the 'QuickBooks Support' link, which refreshes the page, showing they are lost or unsure.</li>
+      <li><strong>14% Carousel Interaction</strong><br />While 14% engage with the product carousel, only 2-3% move on to click on a topic or subtopic, indicating the carousel is not effective.</li>
+      <li><strong>11% Search</strong><br />About 11% use the search function, suggesting the primary navigation is not meeting their needs.</li>
+      <li><strong>8% Contact Us</strong><br />Around 8% scroll to the bottom and click 'Contact Us,' indicating frustration with self-service options.</li>
+    </ol>
+    <p>These insights highlight the need for a more intuitive design to improve navigation and reduce abandonment rates, enhancing the overall customer experience.</p>
 
-  <div class="cs-section">
-    <span class="cs-section-label">Ideate</span>
-    <h2>Competitive analysis</h2>
+    <h3>Only one product is preselected</h3>
+    <p>QuickBooks Online is selected by default, leading to a 97% selection rate, meaning only 3% of customers actively choose other QuickBooks products. This default setting often directs customers to QuickBooks Online topic pages, even if they don't use it.</p>
+    <p>Furthermore, out of the 3% who click on a topic or use the product selector, only 2% switch to a different product in the dropdown menu.</p>
+    <figure class="cs-img">
+      <img src="/images/audit-05b.png" alt="Product selector engagement analytics" loading="lazy" />
+      <figcaption>Analytics Screenshot: Users who click on a topic and select a different product</figcaption>
+    </figure>
+
+    <h3>Multiple Clicks on Products</h3>
+    <p>Customers often click on products in the carousel multiple times, expecting a new page to load. They don't realize that the topic cards below the selector change based on the selected product.</p>
+    <figure class="cs-img">
+      <img src="/images/audit-05c.png" alt="Users clicking on a product expecting something to load" loading="lazy" />
+      <figcaption>Analytics Screenshot: Users who are click on a product expecting something to load</figcaption>
+    </figure>
+
+    <h2>Qualitative Research</h2>
+    <p>Our customer research revealed that most users start with the marketing site, while others use external resources like Google, YouTube, blogs, and tutorials. We should add a 'Get Started' section on the marketing site to direct users to our support site. The product selector was often overlooked due to its lack of visibility and clarity. Customers also struggled to find specific products using the topic-first approach. For the Contact Us section, most users didn't scroll down to it and preferred finding contact links or phone numbers in the navigation. Some suggested a floating action button (FAB) for quick access to chat, contact, or a digital assistant. These findings highlight the need to improve the visibility and user-friendliness of key sections.</p>
+
+    <blockquote class="cs-ps">
+      <p>"It's not obvious, when I select a card, if I will be taken to an article or a page."</p>
+      <p>– Kimberly C.</p>
+    </blockquote>
+    <blockquote class="cs-ps">
+      <p>"It doesn't make a ton of sense to be honest. Like, I mean, it just, it doesn't call to me to like click ... like as I like look over like topics. Okay. But it's going to just still be like clicking through to get to another thing to get to another thing."</p>
+      <p>– Ximena A.</p>
+    </blockquote>
+    <blockquote class="cs-ps">
+      <p>"I don't know if finding a way to break it out a little bit more in design to draw attention. Cause then maybe I will click carousel, but I didn't notice it. I don't know why I didn't scroll down the screen."</p>
+      <p>– Matt H.</p>
+    </blockquote>
+
+    <h3>Internal support</h3>
+    <p>Both qualitative and quantitative data clearly indicate that the user experience for out-of-product help is subpar, and customers are not engaging with the product selector. Fortunately, we have strong internal support from key stakeholders involved with the product support site. It's incredibly encouraging to see that other employees share the same passion for enhancing the customer experience.</p>
+    <p>Adopting a product-first approach will provide much-needed clarity. By allowing customers to first select a product from a dedicated product page and then choose a relevant topic, we can offer a cleaner, more consistent flow. Everyone is aligned with this strategy and recognizes it as a crucial step forward.</p>
+    <p>This change will have a significant impact on our bottom line. When customers can easily find the information they need, there will be fewer escalations, lower call rates, and substantial cost savings.</p>
+
+    <h2>Competitive Analysis</h2>
     <p>I conducted a competitive analysis of several support websites compared to QuickBooks. Most companies prominently feature their products on the support homepage, often using logos or icons for easy recognition. For instance, Microsoft, Atlassian, Adobe, and Google use logos, while Apple uses icons, and Samsung groups products by type.</p>
-    <p>Clear navigation is also a common theme. Many companies provide a direct way to browse all products, such as Dell's button under the search bar, and Intel and Cisco's use of product categories. These practices enhance user experience and can be valuable for improving our own support websites. None use a topic-first approach.</p>
+    <p>Clear navigation is also a common theme. Many companies provide a direct way to browse all products, such as Dell's button under the search bar, and Intel and Cisco's use of product categories. These practices enhance user experience and can be valuable for improving our own support website. None use a topic first approach.</p>
     <figure class="cs-img">
       <img src="/images/audit-06-competitive.png" alt="Competitive analysis of support websites" loading="lazy" />
-      <figcaption>Competitive analysis — how leading companies surface products on their support homepages</figcaption>
-    </figure>
-
-    <h3>Opportunities</h3>
-    <p>The audit revealed issues with the hierarchy and the lack of a product-first approach. Moving to a product-first approach will address a wide range of customer issues:</p>
-    <ul>
-      <li>Replace the Product Selector with the top 6 most popular products and a "View all products" link.</li>
-      <li>Each product will have its own page with topic cards, and topics will be removed from the main navigation.</li>
-      <li>The information architecture should prioritize products: Intuit → BU → Product → Topic → Subtopic → Article.</li>
-      <li>Align with marketing by adding a support section to existing product pages.</li>
-    </ul>
-
-    <h3>New user flow</h3>
-    <p>A customer lands on the support site to learn about timesheet management. They don't see their product on the product support homepage, so they click "View All." On the full products page, they find TSheets. The TSheets product page then displays a topic for timesheet management — a clean, three-step path vs. the current multi-step dead end.</p>
-    <figure class="cs-img">
-      <img src="/images/audit-07a-opportunities-flow.png" alt="New product-first user flow" loading="lazy" />
-      <figcaption>New user flow — product-first path from homepage to relevant support content</figcaption>
+      <figcaption>Other support websites using a product-first for their information architecture</figcaption>
     </figure>
   </div>
 
   <div class="cs-section">
-    <span class="cs-section-label">Prototype</span>
-    <h2>Redesign: product selector</h2>
-    <p>The redesigned product selector leads with product identity, presented clearly with logos and plain-language names rather than buried in a dropdown. Once selected, the entire navigation and content surface adapts — giving users immediate confidence that they're in the right place.</p>
+    <span class="cs-section-label">Ideate</span>
+    <h2>Opportunities</h2>
+    <p>The audit revealed issues with the hierarchy and the lack of a product-first approach. Having a product-first approach will address a wide range of customer issues.</p>
+
+    <h3>New user flow</h3>
+    <p>A customer lands on the support site to learn about timesheet management. They don't see their product on the product support homepage, so they click "View All." On the full products page, they find TSheets. The TSheets product page then displays a topic for timesheet management.</p>
     <figure class="cs-img">
-      <img src="/images/audit-03.png" alt="Annotated product selector redesign" loading="lazy" />
-      <figcaption>Redesigned product selector — product-first approach with annotations</figcaption>
+      <img src="/images/audit-07a-opportunities-flow.png" alt="New product-first user flow" loading="lazy" />
+      <figcaption>Customer journey to reach a help article through product pages</figcaption>
     </figure>
 
-    <h3>Dynamic navigation concept</h3>
-    <p>The proposed solution makes product selection the first step, not an afterthought. A product-first model dynamically surfaces navigation and content specific to the user's product, reducing cognitive load and eliminating the dead ends that drove 27% abandonment.</p>
-    <figure class="cs-img">
-      <img src="/images/audit-02.gif" alt="Dynamic navigation driven by product selection" loading="lazy" />
-      <figcaption>Dynamic navigation — content and nav adapts the moment a product is selected</figcaption>
-    </figure>
-
-    <h2>Wireframe and high fidelity mockups</h2>
+    <h3>Wireframes and Prototypes</h3>
     <p>The wireframe presents a streamlined user experience where customers first select their product, then browse relevant topics without any hidden elements. This clear, step-by-step flow enhances confidence in choosing the right product for the help they need.</p>
-    <h3>Benefits</h3>
+
+    <h4>Benefits</h4>
     <ul>
       <li>Remove the product selector.</li>
-      <li>Display the top QuickBooks products on the homepage with a link to view all.</li>
+      <li>Display the top six QuickBooks products on the homepage with a link to view all.</li>
       <li>Remove topics from navigation.</li>
       <li>Product pages will show only relevant topics, with no hidden content.</li>
-      <li>Eliminate carousels to reduce clutter.</li>
-      <li>The Product Topic page will list content for the selected product and topic.</li>
+      <li>Eliminate subtopics to reduce clicks.</li>
+      <li>The Product Topic page will list content (IGC/UGC/Tutorials) for the selected product and topic.</li>
     </ul>
     <figure class="cs-img">
       <img src="/images/audit-07b-opportunities-wireframe.gif" alt="Wireframe of the product-first support redesign" loading="lazy" />
-      <figcaption>Wireframe — product-first support homepage and product page templates</figcaption>
+      <figcaption>Wireframe of a product-first approach for the QuickBooks support site.</figcaption>
     </figure>
     <figure class="cs-img">
       <img src="/images/audit-07c-opportunities-mock.gif" alt="High-fidelity mockup of the product-first redesign" loading="lazy" />
-      <figcaption>High-fidelity mockup — the QuickBooks support site reimagined with a product-first approach</figcaption>
+      <figcaption>Mockup of a product-first approach for the QuickBooks support site.</figcaption>
     </figure>
   </div>
 
   <div class="cs-section">
     <span class="cs-section-label">Results</span>
-    <h2>Summary</h2>
+    <h2>Moving towards rearchitecture</h2>
     <p>Customers are not interacting with the product selector and are confused by the topic-first approach, likely because the current design asks them to make a significant decision from a single section of the page. To address this, we need to shift to a product-first approach, making product selection the main focus.</p>
-    <p>Instead of continually patching the product selector — which is fundamentally flawed — we need to validate our hypothesis of a product-first approach. To do this, we will conduct usability tests comparing the current site with a new design that prioritizes product selection first. These tests will involve a series of tasks to identify user frustrations and confusion points. By analyzing the data, we can determine if the new approach improves customer retention and advocacy, reduces contact and escalation rates, and ultimately increases revenue.</p>
+    <p>Instead of continually patching the product selector, which is fundamentally flawed, we need to validate our hypothesis of a product-first approach. To do this, we will conduct usability tests comparing the current site with a new design that prioritizes product selection first. These tests will involve a series of tasks to identify user frustrations and confusion points. By analyzing the data, we can determine if the new approach improves customer retention and advocacy, reduces contact and escalation rates, and ultimately increases revenue.</p>
     <p>Both qualitative and quantitative data clearly indicate that the user experience for out-of-product help is subpar, and customers are not engaging with the product selector. Fortunately, we have strong internal support from key stakeholders. It's incredibly encouraging to see that other employees share the same passion for enhancing the customer experience. This change will have a significant impact on the bottom line: when customers can easily find the information they need, there will be fewer escalations, lower call rates, and substantial cost savings.</p>
   </div>
 
