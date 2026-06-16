@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Message Sent">
+  <div class="success-wrap">
+    <h1>Message sent!</h1>
+    <p>Thanks for reaching out — I'll get back to you soon.</p>
+    <a href="/" class="btn-primary">Back to home</a>
+  </div>
+</Layout>
+
+<style>
+  .success-wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 10vmax var(--gutter);
+    text-align: center;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+
+  p {
+    font-size: 1rem;
+    color: #555;
+  }
+</style>
