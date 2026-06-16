@@ -37,6 +37,30 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
+    <div class="contact-right">
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+        <div class="form-field">
+          <label for="name">Name <span class="required">*</span></label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message <span class="required">*</span></label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn btn-primary">Send message</button>
+      </form>
+    </div>
+
   </div>
 </Layout>
 
@@ -46,8 +70,13 @@ import Layout from '../layouts/Layout.astro';
     margin: 0 auto;
     padding: 5vmax var(--gutter);
     display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6vw;
     min-height: 70vh;
+    align-items: start;
   }
+
+  .hidden { display: none; }
 
   /* Left */
   .contact-left h1 {
@@ -137,19 +166,12 @@ import Layout from '../layouts/Layout.astro';
   textarea { resize: vertical; }
 
   .submit-btn {
-    background: var(--accent);
-    color: var(--white);
+    cursor: pointer;
     border: none;
     padding: 0.75rem 2rem;
-    font-family: 'Almarai', sans-serif;
     font-size: 0.9rem;
     font-weight: 700;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: opacity 0.15s;
   }
-
-  .submit-btn:hover { opacity: 0.85; }
 
   @media (max-width: 768px) {
     .contact-wrap { grid-template-columns: 1fr; }
