@@ -8,6 +8,19 @@ interface Props {
 
 const { title, description = "Staff Product Designer at Intuit — designing at the system level." } = Astro.props;
 const currentPath = Astro.url.pathname;
+
+const socials = [
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/jared-gase/', icon: '/images/icons/linkedin.svg' },
+  { label: 'Instagram', href: 'https://www.instagram.com/jared_photo/',  icon: '/images/icons/instagram.png' },
+  { label: 'GitHub',    href: 'https://github.com/rony-1337',            icon: '/images/icons/github.svg' },
+  { label: 'Dribbble',  href: 'https://dribbble.com/jaredgase',          icon: '/images/icons/dribble.svg' },
+];
+
+const navLinks = [
+  { label: 'Work',    href: '/work' },
+  { label: 'About',   href: '/about' },
+  { label: 'Contact', href: '/contact' },
+];
 ---
 
 <!doctype html>
@@ -30,19 +43,31 @@ const currentPath = Astro.url.pathname;
         <a href="/" class="logo-link">
           <img src="/images/jg_icon.webp" alt="Jared Gase" class="nav-logo" />
         </a>
-        <nav class="desktop-nav">
-          <a href="/about" class:list={[{ active: currentPath.startsWith('/about') }]}>About</a>
-          <a href="/work" class:list={[{ active: currentPath.startsWith('/work') }]}>Work</a>
-          <a href="/contact" class:list={[{ active: currentPath.startsWith('/contact') }]}>Contact</a>
+        <nav class="pill-nav">
+          {navLinks.map((l) => (
+            <a href={l.href} class:list={[{ active: currentPath.startsWith(l.href) }]}>{l.label}</a>
+          ))}
         </nav>
+        <div class="nav-social">
+          {socials.map((s) => (
+            <a class="soc-link" href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
+              <span class={`soc-ico soc-${s.label.toLowerCase()}`}></span>
+            </a>
+          ))}
+        </div>
         <button class="mobile-toggle" id="menuToggle" aria-label="Menu">
           <span></span><span></span>
         </button>
       </div>
       <nav class="mobile-nav" id="mobileNav">
-        <a href="/about">About</a>
-        <a href="/work">Work</a>
-        <a href="/contact">Contact</a>
+        {navLinks.map((l) => (<a href={l.href}>{l.label}</a>))}
+        <div class="mobile-social">
+          {socials.map((s) => (
+            <a class="soc-link" href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
+              <span class={`soc-ico soc-${s.label.toLowerCase()}`}></span>
+            </a>
+          ))}
+        </div>
       </nav>
     </header>
 
@@ -50,31 +75,12 @@ const currentPath = Astro.url.pathname;
       <slot />
     </main>
 
-    <footer>
-      <div class="footer-inner">
-        <a href="/" class="footer-logo">
-          <img src="/images/jg_icon.webp" alt="Jared Gase" />
-        </a>
-        <div class="footer-right">
-          <div class="footer-social">
-            <a href="https://www.linkedin.com/in/jared-gase/" target="_blank" rel="noopener" aria-label="LinkedIn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            </a>
-            <a href="https://www.instagram.com/jared_photo/" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-            </a>
-            <a href="https://dribbble.com/jaredgase" target="_blank" rel="noopener" aria-label="Dribbble">
-              <svg width="20" height="20" viewBox="0 0 512 512" fill="currentColor"><path d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z"/></svg>
-            </a>
-          </div>
-          <div class="footer-contact">
-            <p>(619) 997 - 2058</p>
-            <p><a href="mailto:jdgase@gmail.com">jdgase@gmail.com</a></p>
-            <p>© {new Date().getFullYear()} Jared Gase</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <!-- Site-wide mode toggle FAB. Persists on every page of jaredgase.com (Normal mode).
+         "Presentation" jumps to deck.jaredgase.com. -->
+    <div class="mode-fab" role="group" aria-label="View mode" transition:persist>
+      <span class="mode-seg active" aria-current="true">Normal</span>
+      <a class="mode-seg" href="https://deck.jaredgase.com">Presentation</a>
+    </div>
 
     <script>
       function initPage() {
@@ -182,9 +188,70 @@ const currentPath = Astro.url.pathname;
     --black: #000000;
     --accent: hsl(196, 95%, 14.5%);      /* dark teal — nav text, headings */
     --accent-mid: hsl(201, 100%, 34%);   /* medium teal — links, h1 on home */
+    --brand-blue: #2A88BA;               /* logo blue — toggle active state */
     --light-bg: hsl(240, 11%, 93%);      /* light gray sections */
     --gutter: 4vw;
     --max-width: 1200px;
+  }
+
+  /* ── Social icons: black by default, brand color/gradient on hover ──
+     Uses each icon as a CSS mask so a single element can be recolored.
+     Shared by the header nav and the homepage bio row. */
+  .soc-link { display: inline-flex; line-height: 0; }
+  .soc-ico {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #111;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transition: background 0.2s ease;
+  }
+  .soc-linkedin  { -webkit-mask-image: url('/images/icons/linkedin.svg');  mask-image: url('/images/icons/linkedin.svg'); }
+  .soc-instagram { -webkit-mask-image: url('/images/icons/instagram.png'); mask-image: url('/images/icons/instagram.png'); }
+  .soc-github    { -webkit-mask-image: url('/images/icons/github.svg');    mask-image: url('/images/icons/github.svg'); }
+  .soc-dribbble  { -webkit-mask-image: url('/images/icons/dribble.svg');   mask-image: url('/images/icons/dribble.svg'); }
+
+  .soc-link:hover .soc-linkedin { background: #0A66C2; }
+  .soc-link:hover .soc-github   { background: #4a4a4a; }
+  .soc-link:hover .soc-dribbble { background: #EA4C89; }
+  .soc-link:hover .soc-instagram {
+    background: radial-gradient(circle at 30% 107%,
+      #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  }
+
+  /* ── Site-wide mode toggle FAB (segmented control) ── */
+  .mode-fab {
+    position: fixed;
+    right: clamp(1.25rem, 4vw, 3rem);
+    bottom: clamp(1.25rem, 4vw, 2.5rem);
+    z-index: 90;
+    display: flex;
+    gap: 0.2rem;
+    padding: 0.3rem;
+    background: var(--white);
+    border: 1px solid #e5e5e5;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px -14px rgba(20, 40, 60, 0.4);
+  }
+  .mode-seg {
+    font-family: 'Almarai', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    text-decoration: none;
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    transition: color 0.18s ease, background 0.18s ease;
+  }
+  .mode-seg:hover { color: var(--brand-blue); background: hsl(210, 20%, 96%); }
+  .mode-seg.active,
+  .mode-seg.active:hover {
+    color: var(--white);
+    background: var(--brand-blue);
   }
 
   html {
@@ -313,43 +380,70 @@ const currentPath = Astro.url.pathname;
 
   /* ─── Header ─────────────────────────────── */
   #header {
-    background: var(--white);
     position: sticky;
     top: 0;
     z-index: 100;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: saturate(180%) blur(10px);
+    -webkit-backdrop-filter: saturate(180%) blur(10px);
   }
 
   .header-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 1rem var(--gutter);
-    display: flex;
+    padding: 0.9rem var(--gutter);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
+    gap: 1rem;
   }
 
+  .logo-link { justify-self: start; }
   .nav-logo { height: 40px; width: 40px; border-radius: 50%; }
 
-  .desktop-nav { display: flex; gap: 2rem; }
+  /* Centered pill nav */
+  .pill-nav {
+    justify-self: center;
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.3rem 0.35rem;
+    background: var(--white);
+    border: 1px solid #e6e6e9;
+    border-radius: 999px;
+    box-shadow: 0 6px 20px -14px rgba(20, 40, 60, 0.4);
+  }
 
-  .desktop-nav a {
+  .pill-nav a {
     font-family: 'Almarai', sans-serif;
-    font-size: 0.9rem;
-    color: var(--accent);
+    font-size: 0.85rem;
     letter-spacing: 0.01em;
-    transition: opacity 0.15s;
-    padding-bottom: 2px;
+    color: #5a6b73;
+    padding: 0.45rem 1.15rem;
+    border-radius: 999px;
+    transition: background 0.18s ease, color 0.18s ease;
   }
 
-  .desktop-nav a:hover { opacity: 0.65; }
+  .pill-nav a:hover { color: var(--accent); background: hsl(210, 20%, 96%); }
 
-  .desktop-nav a.active {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  .pill-nav a.active {
+    color: var(--white);
+    background: var(--accent);
   }
+
+  /* Social icons (right) */
+  .nav-social {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .nav-social a { transition: transform 0.15s; }
+  .nav-social a:hover { transform: translateY(-1px); }
 
   .mobile-toggle {
     display: none;
+    justify-self: end;
     flex-direction: column;
     gap: 5px;
     background: none;
@@ -372,46 +466,12 @@ const currentPath = Astro.url.pathname;
   .mobile-nav.open { display: flex; }
   .mobile-nav a { font-size: 1rem; color: var(--accent); }
 
-  /* ─── Footer ─────────────────────────────── */
-  footer {
-    border-top: 1px solid #e5e5e5;
-    padding: 2rem var(--gutter);
-  }
+  .mobile-social { display: flex; gap: 1.1rem; margin-top: 0.25rem; }
+  .mobile-social .soc-ico { width: 22px; height: 22px; }
 
-  .footer-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-
-  .footer-logo img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-  }
-
-  .footer-right { text-align: right; }
-
-  .footer-social {
-    display: flex;
-    gap: 1rem;
-    justify-content: flex-end;
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-social a { color: var(--black); transition: opacity 0.15s; }
-  .footer-social a:hover { opacity: 0.6; }
-
-  .footer-contact { font-size: 0.85rem; line-height: 1.8; }
-  .footer-contact a { color: var(--accent-mid); }
-  .footer-contact a:hover { text-decoration: underline; }
-
-  @media (max-width: 640px) {
-    .desktop-nav { display: none; }
+  @media (max-width: 720px) {
+    .header-inner { grid-template-columns: auto 1fr; }
+    .pill-nav, .nav-social { display: none; }
     .mobile-toggle { display: flex; }
-    .footer-inner { align-items: flex-start; }
-    .footer-logo img { width: 60px; height: 60px; }
   }
 </style>
