@@ -1,234 +1,140 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const projects = [
-  { slug: 'ai-native-iep',      title: 'Project: AI Native IEP, Putting Tools Into the Workflow',          image: '/images/thumb-ux-audit.jpg' },
-  { slug: 'agentic-support',    title: 'Case study: Agentic (AI)-Powered Support, Expert to Expert',        image: '/images/thumb-agentic-support.jpg' },
-  { slug: 'turbotax-concierge', title: 'Case study: TurboTax Concierge, A New Seller Archetype',            image: '/images/thumb-concierge.jpg' },
-  { slug: 'expert-migration',   title: 'Case study: Migration for 30,000+ Product Experts',                 image: '/images/thumb-ai-native-iep.jpg' },
-  { slug: 'cityu-redesign',     title: 'Case study: CityU Website Redesign',                                image: '/images/thumb-cityu.jpg' },
-  { slug: 'ux-audit',           title: 'UX Audit: Rethinking the Path to Support',                          image: '/images/thumb-migration.jpg' },
+const socials = [
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/in/jared-gase/', icon: '/images/icons/linkedin.svg' },
+  { label: 'Instagram', href: 'https://www.instagram.com/jared_photo/',  icon: '/images/icons/instagram.png' },
+  { label: 'GitHub',    href: 'https://github.com/rony-1337',            icon: '/images/icons/github.svg' },
+  { label: 'Dribbble',  href: 'https://dribbble.com/jaredgase',          icon: '/images/icons/dribble.svg' },
 ];
 ---
 
 <Layout title="Home">
 
-  <!-- Hero -->
   <section class="hero">
-    <div class="hero-headline">
-      <p class="greeting">👋 Hi, I'm Jared!</p>
-      <h1>I design at the system level.</h1>
-    </div>
-    <div class="hero-columns">
-      <div class="hero-text">
-        <p class="hero-body">
-          I'm a Staff Product Designer at Intuit, leading end-to-end design across sales
-          technology and serving as the strategic AI design advisor across sales and customer
-          success. My work focuses on connecting workflows, data, and customer journeys into
-          AI-native, platform-level systems.
-        </p>
-        <p class="hero-body">
-          Before Intuit, I led experience design across four universities and five affiliates
-          at National University System, and earlier I cut my teeth at agency work on
-          e-commerce and B2B platforms. The throughline across every chapter: I'm at my best
-          when I can shape direction, not just deliver pixels.
-        </p>
-        <div class="hero-cta"><a href="/about" class="btn-primary">Learn more</a></div>
-      </div>
-      <div class="hero-image-wrap">
-        <div class="hero-image">
-          <img
-            src="/images/headshot.gif"
-            alt="Jared Gase"
-          />
+    <div class="hero-inner">
+      <figure class="hero-photo">
+        <div class="hero-photo-frame">
+          <img src="/images/headshot.gif" alt="Jared Gase" />
         </div>
-        <p class="caption">Yes, I know I look like Bob Ross, and no, it's not a wig.</p>
+        <figcaption>Yes, I know I look like Bob Ross, and no, it's not a wig.</figcaption>
+      </figure>
+
+      <div class="hero-copy">
+        <h1>Jared Gase</h1>
+
+        <p>
+          <strong>Staff Product Designer, most recently at Intuit</strong>. I led end to end
+          design for the seller experience and served as the AI design advisor across Sales and
+          Customer Success, shaping how workflows, data, and customer journeys fit together at
+          the platform level.
+        </p>
+
+        <p>
+          Before that, I led experience design across four universities and five affiliates at
+          National University System, after cutting my teeth on agency work in e-commerce and
+          B2B. Fifteen years in, I do my best work shaping direction, not just pushing pixels.
+          I live in San Diego, and most importantly, I'm a dad of three little boys.
+        </p>
+
+        <div class="hero-social">
+          {socials.map((s) => (
+            <a class="soc-link" href={s.href} target="_blank" rel="noopener" aria-label={s.label}>
+              <span class={`soc-ico soc-${s.label.toLowerCase()}`}></span>
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Recent Work -->
-  <section class="work-section">
-    <div class="work-header">
-      <h2>Recent Work</h2>
-      <p>A selection of projects where strategy, AI, service design, and platform thinking come together. Each one connects design decisions to business outcomes.</p>
-    </div>
-    <div class="project-grid">
-      {projects.map((p) => (
-        <a href={`/work/${p.slug}`} class="project-item">
-          <div class="project-image">
-            <img src={p.image} alt={p.title} loading="lazy" />
-            <div class="project-overlay">
-              <span>{p.title}</span>
-            </div>
-          </div>
-        </a>
-      ))}
-    </div>
-  </section>
-
-  <!-- Get in touch -->
-  <section class="cta-section">
-    <div class="cta-inner">
-      <h2>Get in touch</h2>
-      <p>Whether you're here to explore my work or just interested in a good chat about all things design, I'd love to connect. Take a look around and feel free to say hi.</p>
-      <a href="/contact" class="btn-outline">Connect with me</a>
     </div>
   </section>
 
 </Layout>
 
 <style>
-  /* ─── Hero ─────────────────────────────── */
   .hero {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 5vmax var(--gutter);
-  }
-
-  .hero-headline {
-    margin-bottom: 2.5rem;
-  }
-
-  .hero-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4vw;
-    align-items: center;
-  }
-
-  .greeting {
-    font-size: 1rem;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-  }
-
-  .hero-headline h1 {
-    font-size: clamp(1.6rem, 3.5vw, 3rem);
-    color: var(--accent-mid);
-    margin-bottom: 0;
-    white-space: nowrap;
-  }
-
-  .hero-body {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 0.75rem;
-  }
-
-  .hero-cta { margin-top: 1rem; }
-
-  .hero-image {
-    overflow: hidden;
-    border-radius: 16px;
-  }
-
-  .hero-image img {
-    width: 100%;
-    border-radius: 0;
-    display: block;
-    margin-bottom: -100px;
-  }
-
-  .caption {
-    font-size: 0.78rem;
-    color: #888;
-    text-align: center;
-    margin-top: 0.6rem;
-    font-style: italic;
-  }
-
-  /* ─── Work section ──────────────────────── */
-  .work-section {
-    padding: 5vmax var(--gutter);
-    max-width: var(--max-width);
-    margin: 0 auto;
-  }
-
-  .work-header {
-    margin-bottom: 2.5rem;
-  }
-
-  .work-header h2 {
-    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    margin-bottom: 0.5rem;
-  }
-
-  .work-header p {
-    font-size: 0.9rem;
-    
-  }
-
-  .project-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .project-item { display: block; }
-
-  .project-image {
-    border-radius: 16px;
-    position: relative;
-    aspect-ratio: 4/3;
-    overflow: hidden;
-    background: #e8e8e8;
-  }
-
-  .project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .project-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.35);
+    padding: 6vmax var(--gutter);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1.5rem;
+    min-height: 70vh;
   }
 
-  .project-overlay span {
-    font-family: 'Libre Baskerville', serif;
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-    font-weight: 700;
-    color: var(--white);
+  .hero-inner {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 560px);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+
+  .hero-photo { margin: 0; }
+
+  /* Portrait frame — the GIF is natively 3:4, so it fits with no crop */
+  .hero-photo-frame {
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 30px 60px -30px rgba(20, 40, 60, 0.4);
+  }
+
+  .hero-photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0;
+    display: block;
+  }
+
+  .hero-photo figcaption {
+    font-size: 0.78rem;
+    color: #888;
     text-align: center;
-    line-height: 1.3;
+    margin-top: 0.7rem;
+    font-style: italic;
   }
 
-  /* ─── CTA section ───────────────────────── */
-  .cta-section {
-    background: var(--accent);
-    color: var(--white);
-    padding: 5vmax var(--gutter);
+  .hero-copy h1 {
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    color: var(--accent);
+    line-height: 1.1;
+    margin-bottom: 1.4rem;
   }
 
-  .cta-inner {
-    max-width: var(--max-width);
-    margin: 0 auto;
+  .hero-copy p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 1.1rem;
+    max-width: 52ch;
   }
 
-  .cta-section h2 {
-    font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-    color: var(--white);
-    margin-bottom: 0.75rem;
+  .hero-copy p strong { color: var(--accent); font-weight: 700; }
+
+  .hero-social {
+    display: flex;
+    gap: 1.1rem;
+    margin-top: 1.6rem;
   }
 
-  .cta-section p {
-    font-size: 0.95rem;
-    
-    margin-bottom: 1.75rem;
-    opacity: 0.9;
-  }
+  .hero-social a { transition: transform 0.18s ease; }
+  .hero-social a:hover { transform: translateY(-2px); }
+  .hero-social .soc-ico { width: 24px; height: 24px; }
 
-
-  /* ─── Responsive ────────────────────────── */
-  @media (max-width: 768px) {
-    .hero-columns { grid-template-columns: 1fr; }
-    .project-grid { grid-template-columns: 1fr; }
+  @media (max-width: 780px) {
+    .hero { min-height: 0; padding: 4vmax var(--gutter) 12vmax; }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+    }
+    /* Full-width square image, caption spans the container */
+    .hero-photo { width: 100%; }
+    .hero-photo-frame { aspect-ratio: 1 / 1; }
+    .hero-photo figcaption { width: 100%; }
+    /* Left-aligned copy */
+    .hero-copy { text-align: left; }
+    .hero-copy p { max-width: none; }
+    .hero-social { justify-content: flex-start; }
   }
 </style>
