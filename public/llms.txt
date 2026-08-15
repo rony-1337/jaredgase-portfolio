@@ -1,0 +1,26 @@
+# Jared Gase
+
+> Staff Product Designer (most recently at Intuit) specializing in AI-native, platform-level design across sales technology and the Virtual Expert Platform. 15+ years of experience. Based in San Diego, CA.
+
+Jared Gase designs at the system level — connecting workflows, data, and customer journeys into AI-native, platform-level systems. At Intuit he led end-to-end design for the seller experience and served as the AI design advisor across Sales and Customer Success. Earlier he led experience design across four universities and five affiliates at National University System, after agency work in e-commerce and B2B.
+
+## Pages
+- [Home](https://jaredgase.com/): Introduction and short bio.
+- [About](https://jaredgase.com/about): Full background, experience, résumé, and personal interests.
+- [Work](https://jaredgase.com/work): Portfolio of projects, case studies, and UX audits.
+- [Contact](https://jaredgase.com/contact): Ways to get in touch.
+
+## Selected work
+- [AI Native IEP — Putting Tools Into the Workflow](https://jaredgase.com/work/ai-native-iep): Real-time, card-driven expert workspace driven by what the customer says.
+- [Agentic (AI)-Powered Support, Expert to Expert](https://jaredgase.com/work/agentic-support): Chat feature connecting Tier 1 and Tier 2 experts via Intuit Assist.
+- [TurboTax Concierge — A New Seller Archetype](https://jaredgase.com/work/turbotax-concierge): White-glove seller role influencing 53% of conversions.
+- [Migration for 30,000+ Product Experts](https://jaredgase.com/work/expert-migration): Salesforce-to-IEP migration for tens of thousands of support experts.
+- [CityU Website Redesign](https://jaredgase.com/work/cityu-redesign): Full redesign that drove a 212% spike in RFI submissions.
+- [UX Audit — Rethinking the Path to Support](https://jaredgase.com/work/ux-audit): QuickBooks product support audit and opportunity mapping.
+
+## Contact
+- LinkedIn: https://www.linkedin.com/in/jared-gase/
+- Email: jdgase@gmail.com
+- GitHub: https://github.com/rony-1337
+- Dribbble: https://dribbble.com/jaredgase
+- Instagram: https://www.instagram.com/jared_photo/
