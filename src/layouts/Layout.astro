@@ -119,14 +119,36 @@ const navLinks = [
     </main>
 
     <!-- Site-wide mode toggle FAB. Persists on every page of jaredgase.com (Normal mode).
-         "Presentation" jumps to deck.jaredgase.com. -->
+         "Presentation" jumps to the matching page on deck.jaredgase.com; the href is
+         set per-page by initPage() below (the FAB persists across navigation). -->
     <div class="mode-fab" role="group" aria-label="View mode" transition:persist>
       <span class="mode-seg active" aria-current="true">Normal</span>
-      <a class="mode-seg" href="https://deck.jaredgase.com">Presentation</a>
+      <a class="mode-seg" data-presentation-link href="https://deck.jaredgase.com">Presentation</a>
     </div>
 
     <script>
+      // Map each jaredgase.com page to its counterpart on deck.jaredgase.com.
+      // Anything not listed falls back to the deck root.
+      const DECK = 'https://deck.jaredgase.com';
+      const DECK_MAP = {
+        '': DECK,                                                  // home
+        '/about': DECK + '/overview',
+        '/work': DECK + '/case-studies',
+        '/work/ai-native-iep': DECK + '/case-studies/ai-native',
+        '/work/agentic-support': DECK + '/case-studies/human-intervention-agent',
+        '/work/turbotax-concierge': DECK + '/case-studies/concierge',
+        '/work/expert-migration': DECK + '/case-studies/salesforce-to-iep',
+        // /work/cityu-redesign, /work/ux-audit, /contact, and anything else → DECK
+      };
+
       function initPage() {
+        // ── Mode toggle: point "Presentation" at the matching deck page ──
+        const presLink = document.querySelector('[data-presentation-link]');
+        if (presLink) {
+          const path = location.pathname.replace(/\/+$/, ''); // strip trailing slash; '/' → ''
+          presLink.setAttribute('href', DECK_MAP[path] || DECK);
+        }
+
         // ── Mobile nav toggle ──
         const toggle = document.getElementById('menuToggle');
         const nav = document.getElementById('mobileNav');
